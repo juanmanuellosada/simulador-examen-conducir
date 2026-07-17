@@ -1,0 +1,653 @@
+/* Simulador de examen teórico — mobile-first, sin frameworks. */
+
+:root {
+  --color-bg: #f5f6f4;
+  --color-surface: #ffffff;
+  --color-text: #1a1c19;
+  --color-text-muted: #52564f;
+  --color-border: #d7dbd2;
+  --color-primary: #1b5e20;
+  --color-primary-contraste: #ffffff;
+  --color-correcta: #1b7a2d;
+  --color-correcta-bg: #e3f5e5;
+  --color-incorrecta: #b3261e;
+  --color-incorrecta-bg: #fbe9e7;
+  --color-eliminatoria: #8a5300;
+  --color-eliminatoria-bg: #fff3cd;
+  --color-flojo-bg: #fdece9;
+  --focus-ring: 3px solid #2962ff;
+  --radio-toque-min: 44px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #14161a;
+    --color-surface: #1f2226;
+    --color-text: #eceff1;
+    --color-text-muted: #b0b6bd;
+    --color-border: #3a3f45;
+    --color-primary: #4caf50;
+    --color-primary-contraste: #0c1a0d;
+    --color-correcta: #66bb6a;
+    --color-correcta-bg: #16321a;
+    --color-incorrecta: #ef5350;
+    --color-incorrecta-bg: #3a1a18;
+    --color-eliminatoria: #ffca28;
+    --color-eliminatoria-bg: #3a2f0a;
+    --color-flojo-bg: #3a1a18;
+    --focus-ring: 3px solid #82b1ff;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--color-primary);
+  color: var(--color-primary-contraste);
+  padding: 0.75rem 1rem;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.app-header {
+  padding: 1rem;
+  background: var(--color-primary);
+  color: var(--color-primary-contraste);
+  text-align: center;
+}
+.app-header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.app-header-sub {
+  margin: 0.15rem 0 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+main {
+  display: block;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding-bottom: env(safe-area-inset-bottom);
+  z-index: 10;
+}
+.bottom-nav button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  min-height: var(--radio-toque-min);
+  padding: 0.4rem 0.2rem;
+  cursor: pointer;
+}
+.bottom-nav .icono {
+  width: 21px;
+  height: 21px;
+}
+.bottom-nav button.activo {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* --- Íconos SVG inline (reemplazan a los emojis usados antes) --- */
+.icono {
+  width: 1.15em;
+  height: 1.15em;
+  vertical-align: -0.2em;
+  flex-shrink: 0;
+}
+
+/* --- Componentes genéricos --- */
+
+.tarjeta {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tarjeta h2 {
+  margin-top: 0;
+}
+
+.ayuda {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.boton {
+  display: inline-block;
+  min-height: var(--radio-toque-min);
+  padding: 0.65rem 1.1rem;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+.boton-ancho {
+  display: block;
+  width: 100%;
+}
+.boton-primario {
+  background: var(--color-primary);
+  color: var(--color-primary-contraste);
+}
+.boton-secundario {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+.boton-peligro {
+  background: var(--color-incorrecta-bg);
+  color: var(--color-incorrecta);
+  border-color: var(--color-incorrecta);
+}
+.boton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--color-border);
+  color: var(--color-text);
+  margin-right: 0.35rem;
+}
+.badge-eliminatoria {
+  background: var(--color-eliminatoria-bg);
+  color: var(--color-eliminatoria);
+  border: 1px dashed var(--color-eliminatoria);
+}
+.badge-ok {
+  background: var(--color-correcta-bg);
+  color: var(--color-correcta);
+}
+.badge-error {
+  background: var(--color-incorrecta-bg);
+  color: var(--color-incorrecta);
+}
+.badge-flojo {
+  background: var(--color-flojo-bg);
+  color: var(--color-incorrecta);
+}
+
+/* --- Inicio --- */
+
+.resumen-grid {
+  display: flex;
+  gap: 0.75rem;
+  text-align: center;
+}
+.resumen-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.resumen-valor {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.resumen-etiqueta {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.menu-modos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.boton-modo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  text-align: left;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1rem;
+  min-height: 64px;
+  cursor: pointer;
+}
+.boton-modo-titulo {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.boton-modo-desc {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.info-app {
+  margin-top: 0.25rem;
+}
+.info-app h3 {
+  margin-top: 0;
+}
+
+/* --- Preguntas / práctica --- */
+
+.pregunta-meta {
+  margin-bottom: 0.5rem;
+}
+.pregunta-texto {
+  margin-top: 0.25rem;
+}
+.pregunta-imagen {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  max-height: 220px;
+  margin: 0.5rem auto;
+}
+
+/* Eliminatoria: reprueba el examen entero, tiene que distinguirse a simple
+   vista (además del ícono + texto del badge). */
+.pregunta-practica-eliminatoria {
+  border-color: var(--color-eliminatoria);
+  border-width: 2px;
+}
+
+.opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+.opcion {
+  min-height: var(--radio-toque-min);
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.opcion:disabled {
+  cursor: default;
+}
+.opcion-correcta {
+  border-color: var(--color-correcta);
+  background: var(--color-correcta-bg);
+  color: var(--color-correcta);
+  font-weight: 700;
+}
+.opcion-correcta::before {
+  content: "✓ ";
+}
+.opcion-incorrecta {
+  border-color: var(--color-incorrecta);
+  background: var(--color-incorrecta-bg);
+  color: var(--color-incorrecta);
+  font-weight: 700;
+}
+.opcion-incorrecta::before {
+  content: "✗ ";
+}
+.opcion-seleccionada {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
+  font-weight: 700;
+}
+.opcion-seleccionada::before {
+  content: "● ";
+}
+
+.feedback {
+  margin-top: 1rem;
+  padding: 0.85rem;
+  border-radius: 10px;
+}
+.feedback-ok {
+  background: var(--color-correcta-bg);
+  border: 1px solid var(--color-correcta);
+}
+.feedback-error {
+  background: var(--color-incorrecta-bg);
+  border: 1px solid var(--color-incorrecta);
+}
+.feedback-resultado {
+  font-weight: 700;
+  margin-top: 0;
+}
+.feedback-fuente {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+.feedback-sin-explicacion {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+.feedback .boton-siguiente {
+  margin-top: 0.5rem;
+}
+
+.nota-derivada {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+.nota-derivada .icono {
+  color: var(--color-text-muted);
+}
+
+/* Aviso de conflicto normativo: la fuente oficial del examen y la ley
+   vigente no coinciden. No es un error de la app. */
+.aviso-conflicto {
+  background: var(--color-eliminatoria-bg);
+  border: 1px solid var(--color-eliminatoria);
+  border-left-width: 5px;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  margin-top: 0.75rem;
+}
+.aviso-conflicto-titulo {
+  font-weight: 700;
+  color: var(--color-eliminatoria);
+  margin-top: 0;
+}
+.aviso-conflicto p {
+  margin: 0.4rem 0;
+  font-size: 0.9rem;
+}
+.aviso-conflicto p:first-child {
+  margin-top: 0;
+}
+.aviso-conflicto p:last-child {
+  margin-bottom: 0;
+}
+
+.progreso-sesion {
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.marcar-revision {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  min-height: var(--radio-toque-min);
+}
+.marcar-revision input {
+  width: 22px;
+  height: 22px;
+}
+
+/* --- Examen --- */
+
+.cronometro {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+.cronometro-urgente {
+  background: var(--color-incorrecta-bg);
+  color: var(--color-incorrecta);
+  border-color: var(--color-incorrecta);
+}
+
+.acciones-examen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.acciones-examen .boton {
+  flex: 1;
+  min-width: 120px;
+}
+
+.leyenda-revision {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+}
+.leyenda-revision .muestra {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  margin-right: 0.25rem;
+  vertical-align: middle;
+}
+.muestra.contestada {
+  background: var(--color-correcta-bg);
+  border: 1px solid var(--color-correcta);
+}
+.muestra.sin-contestar {
+  background: var(--color-incorrecta-bg);
+  border: 1px solid var(--color-incorrecta);
+}
+.muestra.marcada {
+  background: var(--color-eliminatoria-bg);
+  border: 1px solid var(--color-eliminatoria);
+}
+
+.grilla-revision {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+.celda-revision {
+  min-height: var(--radio-toque-min);
+  border-radius: 8px;
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-weight: 700;
+  cursor: pointer;
+}
+.celda-revision.contestada {
+  border-color: var(--color-correcta);
+  background: var(--color-correcta-bg);
+  color: var(--color-correcta);
+}
+.celda-revision.sin-contestar {
+  border-color: var(--color-incorrecta);
+  background: var(--color-incorrecta-bg);
+  color: var(--color-incorrecta);
+}
+.celda-revision.marcada {
+  outline: 2px dashed var(--color-eliminatoria);
+  outline-offset: 2px;
+}
+
+/* --- Resultado --- */
+
+.resultado {
+  text-align: center;
+}
+.resultado-aprobado h2 {
+  color: var(--color-correcta);
+}
+.resultado-reprobado h2 {
+  color: var(--color-incorrecta);
+}
+.resultado-puntaje {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.aviso-eliminatoria {
+  text-align: left;
+  background: var(--color-eliminatoria-bg);
+  border: 1px dashed var(--color-eliminatoria);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  color: var(--color-eliminatoria);
+}
+.acciones-resultado {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.revision-item {
+  border-left: 5px solid var(--color-border);
+}
+.revision-ok {
+  border-left-color: var(--color-correcta);
+}
+.revision-error {
+  border-left-color: var(--color-incorrecta);
+}
+
+/* --- Estadísticas --- */
+
+.stat-fila {
+  margin-bottom: 0.85rem;
+}
+.stat-fila-cabecera {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+.barra {
+  height: 12px;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+.barra-relleno {
+  height: 100%;
+  background: var(--color-primary);
+}
+.stat-flojo .barra-relleno {
+  background: var(--color-incorrecta);
+}
+
+/* --- Formularios --- */
+
+.campo {
+  display: block;
+  margin-bottom: 1rem;
+}
+.campo span {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.campo input {
+  width: 100%;
+  min-height: var(--radio-toque-min);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+.lista-selección {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* --- Señales --- */
+
+.grilla-senales {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+.senal-item {
+  margin: 0;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+.senal-item img {
+  display: block;
+  width: 100%;
+  height: 64px;
+  object-fit: contain;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  margin-bottom: 0.25rem;
+}
+.senal-codigo {
+  display: block;
+}
+
+/* --- Pantallas más anchas: dos columnas donde tiene sentido --- */
+@media (min-width: 480px) {
+  body {
+    font-size: 18px;
+  }
+  .grilla-revision {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}

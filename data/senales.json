@@ -1,0 +1,946 @@
+[
+ {
+  "slug": "altura-limitada",
+  "archivo": "assets/senales/altura-limitada.webp",
+  "nombre": "Altura Limitada",
+  "codigo": "P 18",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "ancho-limitado",
+  "archivo": "assets/senales/ancho-limitado.webp",
+  "nombre": "Ancho Limitado",
+  "codigo": "P 19",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "animales-sueltos-1",
+  "archivo": "assets/senales/animales-sueltos-1.webp",
+  "nombre": "Animales Sueltos (Vaca)",
+  "codigo": "P 27",
+  "categoria": "Posibilidad de riesgos eventuales",
+  "match": "exacto"
+ },
+ {
+  "slug": "animales-sueltos-2",
+  "archivo": "assets/senales/animales-sueltos-2.webp",
+  "nombre": "Animales Sueltos (Ciervo)",
+  "codigo": "P 27",
+  "categoria": "Posibilidad de riesgos eventuales",
+  "match": "exacto"
+ },
+ {
+  "slug": "atencion",
+  "archivo": "assets/senales/atencion.webp",
+  "nombre": "Atención",
+  "codigo": "P 6",
+  "categoria": "Advertencias de máximo peligro",
+  "match": "exacto"
+ },
+ {
+  "slug": "banderillero",
+  "archivo": "assets/senales/banderillero.webp",
+  "nombre": "Banderillero",
+  "codigo": "T 5",
+  "categoria": "Demarcación Transitoria",
+  "match": "exacto"
+ },
+ {
+  "slug": "bifurcacion",
+  "archivo": "assets/senales/bifurcacion.webp",
+  "nombre": "Encrucijada (Bifurcación)",
+  "codigo": "P 24",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "bifurcacion-alternativa",
+  "archivo": "assets/senales/bifurcacion-alternativa.webp",
+  "nombre": "Encrucijada (Bifurcación Alternativa)",
+  "codigo": "P 24",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "calle-sin-salida",
+  "archivo": "assets/senales/calle-sin-salida.webp",
+  "nombre": "Camino o Calle Sin Salida",
+  "codigo": "I 15",
+  "categoria": "Características de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "calzada-dividida",
+  "archivo": "assets/senales/calzada-dividida.webp",
+  "nombre": "Calzada Dividida",
+  "codigo": "P 20",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "calzada-resbaladiza",
+  "archivo": "assets/senales/calzada-resbaladiza.webp",
+  "nombre": "Calzada Resbaladiza",
+  "codigo": "P 12",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "camino-sinuoso",
+  "archivo": "assets/senales/camino-sinuoso.webp",
+  "nombre": "Camino Sinuoso",
+  "codigo": "P 8",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "ceda-el-paso",
+  "archivo": "assets/senales/ceda-el-paso.webp",
+  "nombre": "Ceda el Paso",
+  "codigo": "R 28",
+  "categoria": "De prioridad",
+  "match": "exacto"
+ },
+ {
+  "slug": "ciclistas",
+  "archivo": "assets/senales/ciclistas.webp",
+  "nombre": "Ciclistas",
+  "codigo": "P 26",
+  "categoria": "Posibilidad de riesgos eventuales",
+  "match": "exacto"
+ },
+ {
+  "slug": "circulacion-exclusiva-bicicleta",
+  "archivo": "assets/senales/circulacion-exclusiva-bicicleta.webp",
+  "nombre": "Circulación Exclusiva (Bicicleta)",
+  "codigo": "R 18",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "circulacion-exclusiva-jinetes",
+  "archivo": "assets/senales/circulacion-exclusiva-jinetes.webp",
+  "nombre": "Circulación Exclusiva (Jinetes)",
+  "codigo": "R 18",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "circulacion-exclusiva-motos",
+  "archivo": "assets/senales/circulacion-exclusiva-motos.webp",
+  "nombre": "Circulación Exclusiva (Motos)",
+  "codigo": "R 18",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "circulacion-exclusiva-peatones",
+  "archivo": "assets/senales/circulacion-exclusiva-peatones.webp",
+  "nombre": "Circulación Exclusiva (Peatones)",
+  "codigo": "R 18",
+  "categoria": "De restricción",
+  "match": "exacto"
+ },
+ {
+  "slug": "circulacion-exclusiva-transporte-publico",
+  "archivo": "assets/senales/circulacion-exclusiva-transporte-publico.webp",
+  "nombre": "Circulación Exclusiva (Transporte Público)",
+  "codigo": "R 18",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "comienzo-autopista",
+  "archivo": "assets/senales/comienzo-autopista.webp",
+  "nombre": "Comienzo de Autopista",
+  "codigo": "I 12",
+  "categoria": "Características de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "comienzo-doble-mano",
+  "archivo": "assets/senales/comienzo-doble-mano.webp",
+  "nombre": "Comienzo de Doble Mano",
+  "codigo": "R 26",
+  "categoria": "De restricción",
+  "match": "exacto"
+ },
+ {
+  "slug": "contramano",
+  "archivo": "assets/senales/contramano.webp",
+  "nombre": "Contramano",
+  "codigo": "R 2",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "corredor-aereo",
+  "archivo": "assets/senales/corredor-aereo.webp",
+  "nombre": "Corredor Aéreo",
+  "codigo": "P 28",
+  "categoria": "Posibilidad de riesgos eventuales",
+  "match": "exacto"
+ },
+ {
+  "slug": "cruce",
+  "archivo": "assets/senales/cruce.webp",
+  "nombre": "Encrucijada (Cruce)",
+  "codigo": "P 24",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "cruce-ferroviario",
+  "archivo": "assets/senales/cruce-ferroviario.webp",
+  "nombre": "Cruce Ferroviario",
+  "codigo": "P 1",
+  "categoria": "Advertencias de máximo peligro",
+  "match": "exacto"
+ },
+ {
+  "slug": "cruce-peatones",
+  "archivo": "assets/senales/cruce-peatones.webp",
+  "nombre": "Cruce de Peatones",
+  "codigo": "P 5",
+  "categoria": "Advertencias de máximo peligro",
+  "match": "exacto"
+ },
+ {
+  "slug": "cruz-san-andres",
+  "archivo": "assets/senales/cruz-san-andres.webp",
+  "nombre": "Cruz de San Andrés",
+  "codigo": "P 3",
+  "categoria": "Advertencias de máximo peligro",
+  "match": "aproximado"
+ },
+ {
+  "slug": "cruz-san-andres-2",
+  "archivo": "assets/senales/cruz-san-andres-2.webp",
+  "nombre": "Cruz de San Andrés",
+  "codigo": "P 3",
+  "categoria": "Advertencias de máximo peligro",
+  "match": "aproximado"
+ },
+ {
+  "slug": "curva",
+  "archivo": "assets/senales/curva.webp",
+  "nombre": "Curva (Común)",
+  "codigo": "P 7",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "curva-cerrada",
+  "archivo": "assets/senales/curva-cerrada.webp",
+  "nombre": "Curva Cerrada",
+  "codigo": "P 4",
+  "categoria": "Advertencias de máximo peligro",
+  "match": "exacto"
+ },
+ {
+  "slug": "curva-contracurva",
+  "archivo": "assets/senales/curva-contracurva.webp",
+  "nombre": "Curva (Contracurva)",
+  "codigo": "P 7",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "curva-en-s",
+  "archivo": "assets/senales/curva-en-s.webp",
+  "nombre": "Curva (en \"S\")",
+  "codigo": "P 7",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "derrumbes",
+  "archivo": "assets/senales/derrumbes.webp",
+  "nombre": "Derrumbes",
+  "codigo": "P 14",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "direccion-permitida-ambas",
+  "archivo": "assets/senales/direccion-permitida-ambas.webp",
+  "nombre": "Direcciones Permitidas (Ambas Direcciones)",
+  "codigo": "I 22",
+  "categoria": "Características de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "direccion-permitida-bifurcacion",
+  "archivo": "assets/senales/direccion-permitida-bifurcacion.webp",
+  "nombre": "Direcciones Permitidas (Bifurcación)",
+  "codigo": "I 22",
+  "categoria": "Características de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "direccion-permitida-derecha",
+  "archivo": "assets/senales/direccion-permitida-derecha.webp",
+  "nombre": "Direcciones Permitidas (Derecha)",
+  "codigo": "I 22",
+  "categoria": "Características de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "direccion-permitida-igual-sentido-o-derecha",
+  "archivo": "assets/senales/direccion-permitida-igual-sentido-o-derecha.webp",
+  "nombre": "Direcciones Permitidas (Igual Sentido o Derecha)",
+  "codigo": "I 22",
+  "categoria": "Características de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "direccion-permitida-igual-sentido-o-izquierda",
+  "archivo": "assets/senales/direccion-permitida-igual-sentido-o-izquierda.webp",
+  "nombre": "Direcciones Permitidas (Igual Sentido o Izquierda)",
+  "codigo": "I 22",
+  "categoria": "Características de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "direccion-permitida-izquierda",
+  "archivo": "assets/senales/direccion-permitida-izquierda.webp",
+  "nombre": "Direcciones Permitidas (Izquierda)",
+  "codigo": "I 22",
+  "categoria": "Características de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "empalme",
+  "archivo": "assets/senales/empalme.webp",
+  "nombre": "Encrucijada (Empalme)",
+  "codigo": "P 24",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "equipo-pesado-en-la-via",
+  "archivo": "assets/senales/equipo-pesado-en-la-via.webp",
+  "nombre": "Equipo Pesado en la Vía",
+  "codigo": "T 7",
+  "categoria": "Demarcación Transitoria",
+  "match": "exacto"
+ },
+ {
+  "slug": "escolares",
+  "archivo": "assets/senales/escolares.webp",
+  "nombre": "Escolares",
+  "codigo": "P 25",
+  "categoria": "Posibilidad de riesgos eventuales",
+  "match": "exacto"
+ },
+ {
+  "slug": "estacionamiento-exclusivo",
+  "archivo": "assets/senales/estacionamiento-exclusivo.webp",
+  "nombre": "Estacionamiento Exclusivo",
+  "codigo": "R 17",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "estacionamiento-permitido",
+  "archivo": "assets/senales/estacionamiento-permitido.webp",
+  "nombre": "Estacionamiento Permitido",
+  "codigo": "I 20",
+  "categoria": "Características de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "estrechamiento-de-calzada",
+  "archivo": "assets/senales/estrechamiento-de-calzada.webp",
+  "nombre": "Estrechamiento de Calzada",
+  "codigo": "T 4",
+  "categoria": "Demarcación Transitoria",
+  "match": "exacto"
+ },
+ {
+  "slug": "estrechamiento-en-las-dos-manos",
+  "archivo": "assets/senales/estrechamiento-en-las-dos-manos.webp",
+  "nombre": "Estrechamiento (En las dos manos)",
+  "codigo": "P 10",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "estrechamiento-en-una-sola-mano",
+  "archivo": "assets/senales/estrechamiento-en-una-sola-mano.webp",
+  "nombre": "Estrechamiento (En una sola mano)",
+  "codigo": "P 10",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "fin-de-autopista",
+  "archivo": "assets/senales/fin-de-autopista.webp",
+  "nombre": "Fin de Autopista",
+  "codigo": "I 13",
+  "categoria": "Características de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "fin-de-la-prescipcion",
+  "archivo": "assets/senales/fin-de-la-prescipcion.webp",
+  "nombre": "Fin de la Prescripción",
+  "codigo": "R 31",
+  "categoria": "De prioridad",
+  "match": "aproximado"
+ },
+ {
+  "slug": "fin-de-la-prescipcion-2",
+  "archivo": "assets/senales/fin-de-la-prescipcion-2.webp",
+  "nombre": "Fin de la Prescripción",
+  "codigo": "R 32",
+  "categoria": "De prioridad",
+  "match": "aproximado"
+ },
+ {
+  "slug": "giro-obligatorio-derecha",
+  "archivo": "assets/senales/giro-obligatorio-derecha.webp",
+  "nombre": "Giro Obligatorio (Derecha)",
+  "codigo": "R 20",
+  "categoria": "De restricción",
+  "match": "exacto"
+ },
+ {
+  "slug": "giro-obligatorio-izquierda",
+  "archivo": "assets/senales/giro-obligatorio-izquierda.webp",
+  "nombre": "Giro Obligatorio (Izquierda)",
+  "codigo": "R 20",
+  "categoria": "De restricción",
+  "match": "exacto"
+ },
+ {
+  "slug": "hombres-trabajando",
+  "archivo": "assets/senales/hombres-trabajando.webp",
+  "nombre": "Hombres Trabajando",
+  "codigo": "T 6",
+  "categoria": "Demarcación Transitoria",
+  "match": "exacto"
+ },
+ {
+  "slug": "incorporacion-de-transito-lateral",
+  "archivo": "assets/senales/incorporacion-de-transito-lateral.webp",
+  "nombre": "Incorporación de Tránsito Lateral",
+  "codigo": "P 22",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "inicio-de-doble-circulacion",
+  "archivo": "assets/senales/inicio-de-doble-circulacion.webp",
+  "nombre": "Inicio de Doble Circulación",
+  "codigo": "P 23",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "jinetes",
+  "archivo": "assets/senales/jinetes.webp",
+  "nombre": "Jinetes",
+  "codigo": "P 26",
+  "categoria": "Posibilidad de riesgos eventuales",
+  "match": "exacto"
+ },
+ {
+  "slug": "limitacion-de-altura",
+  "archivo": "assets/senales/limitacion-de-altura.webp",
+  "nombre": "Limitación de Altura",
+  "codigo": "R 12",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "limitacion-de-ancho",
+  "archivo": "assets/senales/limitacion-de-ancho.webp",
+  "nombre": "Limitación de Ancho",
+  "codigo": "R 13",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "limitacion-de-largo",
+  "archivo": "assets/senales/limitacion-de-largo.webp",
+  "nombre": "Limitación de Largo",
+  "codigo": "R 14",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "limitacion-de-peso",
+  "archivo": "assets/senales/limitacion-de-peso.webp",
+  "nombre": "Limitación de Peso",
+  "codigo": "R 11",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "limitacion-de-peso-por-eje",
+  "archivo": "assets/senales/limitacion-de-peso-por-eje.webp",
+  "nombre": "Limitación de Peso por Eje",
+  "codigo": "R 11",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "limitacion-de-velocidad-maxima",
+  "archivo": "assets/senales/limitacion-de-velocidad-maxima.webp",
+  "nombre": "Límite de Velocidad Máxima",
+  "codigo": "R 15",
+  "categoria": "De prohibición",
+  "match": "aproximado"
+ },
+ {
+  "slug": "limitacion-de-velocidad-minima",
+  "archivo": "assets/senales/limitacion-de-velocidad-minima.webp",
+  "nombre": "Límite de Velocidad Mínima",
+  "codigo": "R 16",
+  "categoria": "De prohibición",
+  "match": "aproximado"
+ },
+ {
+  "slug": "ninos",
+  "archivo": "assets/senales/ninos.webp",
+  "nombre": "Niños",
+  "codigo": "P 25",
+  "categoria": "Posibilidad de riesgos eventuales",
+  "match": "exacto"
+ },
+ {
+  "slug": "no-avanzar",
+  "archivo": "assets/senales/no-avanzar.webp",
+  "nombre": "No Avanzar",
+  "codigo": "R 1",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "no-ruidos-molestos",
+  "archivo": "assets/senales/no-ruidos-molestos.webp",
+  "nombre": "No Ruidos Molestos",
+  "codigo": "R 7",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "paneles-de-prevencion-aproximacion",
+  "archivo": "assets/senales/paneles-de-prevencion-aproximacion.webp",
+  "nombre": "Paneles de Prevención (aprox.)",
+  "codigo": "P 2",
+  "categoria": "Advertencias de máximo peligro",
+  "match": "aproximado"
+ },
+ {
+  "slug": "paneles-de-prevencion-curva",
+  "archivo": "assets/senales/paneles-de-prevencion-curva.webp",
+  "nombre": "Paneles de Prevención (curva)",
+  "codigo": "P 2",
+  "categoria": "Advertencias de máximo peligro",
+  "match": "aproximado"
+ },
+ {
+  "slug": "paneles-de-prevencion-curva-2",
+  "archivo": "assets/senales/paneles-de-prevencion-curva-2.webp",
+  "nombre": "Paneles de Prevención (Curva)",
+  "codigo": "P 2",
+  "categoria": "Advertencias de máximo peligro",
+  "match": "aproximado"
+ },
+ {
+  "slug": "paneles-de-prevencion-obstaculo-rigido",
+  "archivo": "assets/senales/paneles-de-prevencion-obstaculo-rigido.webp",
+  "nombre": "Paneles de Prevención (obstáculo rígido)",
+  "codigo": "P 2",
+  "categoria": "Advertencias de máximo peligro",
+  "match": "aproximado"
+ },
+ {
+  "slug": "pare",
+  "archivo": "assets/senales/pare.webp",
+  "nombre": "Pare",
+  "codigo": "R 27",
+  "categoria": "De prioridad",
+  "match": "exacto"
+ },
+ {
+  "slug": "paso-obligado-derecha",
+  "archivo": "assets/senales/paso-obligado-derecha.webp",
+  "nombre": "Paso Obligado (Derecha)",
+  "codigo": "R 22",
+  "categoria": "De restricción",
+  "match": "exacto"
+ },
+ {
+  "slug": "paso-obligado-izquierda",
+  "archivo": "assets/senales/paso-obligado-izquierda.webp",
+  "nombre": "Paso Obligado (Izquierda)",
+  "codigo": "R 22",
+  "categoria": "De restricción",
+  "match": "exacto"
+ },
+ {
+  "slug": "peatones-por-la-izquierda",
+  "archivo": "assets/senales/peatones-por-la-izquierda.webp",
+  "nombre": "Peatones por la Izquierda",
+  "codigo": "R 24",
+  "categoria": "De restricción",
+  "match": "exacto"
+ },
+ {
+  "slug": "pendiente-ascendente",
+  "archivo": "assets/senales/pendiente-ascendente.webp",
+  "nombre": "Pendiente (Ascendente)",
+  "codigo": "P 9",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "pendiente-descendente",
+  "archivo": "assets/senales/pendiente-descendente.webp",
+  "nombre": "Pendiente (Descendente)",
+  "codigo": "P 9",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "perfil-irregular",
+  "archivo": "assets/senales/perfil-irregular.webp",
+  "nombre": "Perfil Irregular (Irregular)",
+  "codigo": "P 11",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "perfil-irregular-baden",
+  "archivo": "assets/senales/perfil-irregular-baden.webp",
+  "nombre": "Perfil (Irregular Badén)",
+  "codigo": "P 11",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "perfil-irregular-lomada",
+  "archivo": "assets/senales/perfil-irregular-lomada.webp",
+  "nombre": "Perfil Irregular (Lomada)",
+  "codigo": "P 11",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "permitido-girar-derecha",
+  "archivo": "assets/senales/permitido-girar-derecha.webp",
+  "nombre": "Permitido Girar (Derecha)",
+  "codigo": "I 21",
+  "categoria": "Características de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "permitido-girar-izquierda",
+  "archivo": "assets/senales/permitido-girar-izquierda.webp",
+  "nombre": "Permitido Girar (Izquierda)",
+  "codigo": "I 21",
+  "categoria": "Características de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "preferencia-de-avance",
+  "archivo": "assets/senales/preferencia-de-avance.webp",
+  "nombre": "Preferencia de Avance",
+  "codigo": "R 29",
+  "categoria": "De prioridad",
+  "match": "exacto"
+ },
+ {
+  "slug": "presencia-de-vehiculo-extrano-ambulancia",
+  "archivo": "assets/senales/presencia-de-vehiculo-extrano-ambulancia.webp",
+  "nombre": "Presencia de Vehículo Extraño (Ambulancia)",
+  "codigo": "P 29",
+  "categoria": "Posibilidad de riesgos eventuales",
+  "match": "exacto"
+ },
+ {
+  "slug": "presencia-de-vehiculo-extrano-tractor",
+  "archivo": "assets/senales/presencia-de-vehiculo-extrano-tractor.webp",
+  "nombre": "Presencia de Vehículo Extraño (Tractor)",
+  "codigo": "P 29",
+  "categoria": "Posibilidad de riesgos eventuales",
+  "match": "exacto"
+ },
+ {
+  "slug": "presencia-de-vehiculo-extrano-tranvia",
+  "archivo": "assets/senales/presencia-de-vehiculo-extrano-tranvia.webp",
+  "nombre": "Presencia de Vehículo Extraño (Tranvía)",
+  "codigo": "P 29",
+  "categoria": "Posibilidad de riesgos eventuales",
+  "match": "exacto"
+ },
+ {
+  "slug": "prohibicion-de-circular-acoplado",
+  "archivo": "assets/senales/prohibicion-de-circular-acoplado.webp",
+  "nombre": "Prohibición de Circular (Acoplado)",
+  "codigo": "R 3",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "prohibicion-de-circular-animal",
+  "archivo": "assets/senales/prohibicion-de-circular-animal.webp",
+  "nombre": "Prohibición de Circular (Animal)",
+  "codigo": "R 3",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "prohibicion-de-circular-autos",
+  "archivo": "assets/senales/prohibicion-de-circular-autos.webp",
+  "nombre": "Prohibición de Circular (Autos)",
+  "codigo": "R 3",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "prohibicion-de-circular-bicicletas",
+  "archivo": "assets/senales/prohibicion-de-circular-bicicletas.webp",
+  "nombre": "Prohibición de Circular (Bicicletas)",
+  "codigo": "R 3",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "prohibicion-de-circular-camiones",
+  "archivo": "assets/senales/prohibicion-de-circular-camiones.webp",
+  "nombre": "Prohibición de Circular (Camión)",
+  "codigo": "R 3",
+  "categoria": "De prohibición",
+  "match": "aproximado"
+ },
+ {
+  "slug": "prohibicion-de-circular-caro-de-mano",
+  "archivo": "assets/senales/prohibicion-de-circular-caro-de-mano.webp",
+  "nombre": "Prohibición de Circular (Carro de mano)",
+  "codigo": "R 3",
+  "categoria": "De prohibición",
+  "match": "aproximado"
+ },
+ {
+  "slug": "prohibicion-de-circular-motos",
+  "archivo": "assets/senales/prohibicion-de-circular-motos.webp",
+  "nombre": "Prohibición de Circular (Motos)",
+  "codigo": "R 3",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "prohibicion-de-circular-peaton",
+  "archivo": "assets/senales/prohibicion-de-circular-peaton.webp",
+  "nombre": "Prohibición de Circular (Peatón)",
+  "codigo": "R 3",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "prohibicion-de-circular-traccion-animal",
+  "archivo": "assets/senales/prohibicion-de-circular-traccion-animal.webp",
+  "nombre": "Prohibición de Circular (Tracción animal)",
+  "codigo": "R 3",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "prohibicion-de-circular-tractor",
+  "archivo": "assets/senales/prohibicion-de-circular-tractor.webp",
+  "nombre": "Prohibición de Circular (Tractor)",
+  "codigo": "R 3",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "prohibido-adelantar",
+  "archivo": "assets/senales/prohibido-adelantar.webp",
+  "nombre": "Prohibido Adelantar",
+  "codigo": "R 6",
+  "categoria": "De prohibición",
+  "match": "exacto"
+ },
+ {
+  "slug": "prohibido-cambiar-de-carril",
+  "archivo": "assets/senales/prohibido-cambiar-de-carril.webp",
+  "nombre": "Prohibición de Cambiar de Carril",
+  "codigo": "R 10",
+  "categoria": "De prohibición",
+  "match": "aproximado"
+ },
+ {
+  "slug": "prohibido-estacionar",
+  "archivo": "assets/senales/prohibido-estacionar.webp",
+  "nombre": "No Estacionar",
+  "codigo": "R 8",
+  "categoria": "De prohibición",
+  "match": "aproximado"
+ },
+ {
+  "slug": "prohibido-estacionar-y-detenerse",
+  "archivo": "assets/senales/prohibido-estacionar-y-detenerse.webp",
+  "nombre": "No Estacionar ni Detenerse",
+  "codigo": "R 9",
+  "categoria": "De prohibición",
+  "match": "aproximado"
+ },
+ {
+  "slug": "prohibido-girar-derecha",
+  "archivo": "assets/senales/prohibido-girar-derecha.webp",
+  "nombre": "No Girar a la Derecha",
+  "codigo": "R 4",
+  "categoria": "De prohibición",
+  "match": "aproximado"
+ },
+ {
+  "slug": "prohibido-girar-en-u",
+  "archivo": "assets/senales/prohibido-girar-en-u.webp",
+  "nombre": "No Girar en U (no retomar)",
+  "codigo": "R 5",
+  "categoria": "De prohibición",
+  "match": "aproximado"
+ },
+ {
+  "slug": "prohibido-girar-izquierda",
+  "archivo": "assets/senales/prohibido-girar-izquierda.webp",
+  "nombre": "No Girar a la Izquierda",
+  "codigo": "R 4",
+  "categoria": "De prohibición",
+  "match": "aproximado"
+ },
+ {
+  "slug": "proyecion-de-piedras",
+  "archivo": "assets/senales/proyecion-de-piedras.webp",
+  "nombre": "Proyección de Piedras",
+  "codigo": "P 13",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "aproximado"
+ },
+ {
+  "slug": "puente-angosto",
+  "archivo": "assets/senales/puente-angosto.webp",
+  "nombre": "Puente Angosto",
+  "codigo": "P 16",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "puente-movil",
+  "archivo": "assets/senales/puente-movil.webp",
+  "nombre": "Puente Móvil",
+  "codigo": "P 17",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "puesto-de-control",
+  "archivo": "assets/senales/puesto-de-control.webp",
+  "nombre": "Puesto de Control",
+  "codigo": "R 25",
+  "categoria": "De restricción",
+  "match": "exacto"
+ },
+ {
+  "slug": "rotonda",
+  "archivo": "assets/senales/rotonda.webp",
+  "nombre": "Rotonda",
+  "codigo": "P 21",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "ruta-nacional",
+  "archivo": "assets/senales/ruta-nacional.webp",
+  "nombre": "Ruta Nacional",
+  "codigo": "I 2",
+  "categoria": "Nomenclatura vial y urbana. Destinos y distancias",
+  "match": "exacto"
+ },
+ {
+  "slug": "ruta-provincial",
+  "archivo": "assets/senales/ruta-provincial.webp",
+  "nombre": "Ruta Provincial",
+  "codigo": "I 3",
+  "categoria": "Nomenclatura vial y urbana. Destinos y distancias",
+  "match": "exacto"
+ },
+ {
+  "slug": "sentido-de-circulacion-alternativa",
+  "archivo": "assets/senales/sentido-de-circulacion-alternativa.webp",
+  "nombre": "Sentido de Circulación (Alternativa)",
+  "codigo": "R 21",
+  "categoria": "De restricción",
+  "match": "exacto"
+ },
+ {
+  "slug": "sentido-de-circulacion-derecha",
+  "archivo": "assets/senales/sentido-de-circulacion-derecha.webp",
+  "nombre": "Sentido de Circulación (Derecha)",
+  "codigo": "R 21",
+  "categoria": "De restricción",
+  "match": "exacto"
+ },
+ {
+  "slug": "sentido-de-circulacion-izquierda",
+  "archivo": "assets/senales/sentido-de-circulacion-izquierda.webp",
+  "nombre": "Sentido de Circulación (Izquierda)",
+  "codigo": "R 21",
+  "categoria": "De restricción",
+  "match": "exacto"
+ },
+ {
+  "slug": "sentido-de-circulacion-unico",
+  "archivo": "assets/senales/sentido-de-circulacion-unico.webp",
+  "nombre": "Sentido de Circulación (Comienzo Sentido Único)",
+  "codigo": "R 21",
+  "categoria": "De restricción",
+  "match": "aproximado"
+ },
+ {
+  "slug": "transitar-con-luces-bajas-encendidas",
+  "archivo": "assets/senales/transitar-con-luces-bajas-encendidas.webp",
+  "nombre": "Transitar con Luces Bajas Encendidas",
+  "codigo": "Ley N°25456",
+  "categoria": "De restricción",
+  "match": "exacto"
+ },
+ {
+  "slug": "transito-pesado-a-la-derecha",
+  "archivo": "assets/senales/transito-pesado-a-la-derecha.webp",
+  "nombre": "Tránsito Pesado a la Derecha",
+  "codigo": "R 23",
+  "categoria": "De restricción",
+  "match": "exacto"
+ },
+ {
+  "slug": "tunel",
+  "archivo": "assets/senales/tunel.webp",
+  "nombre": "Túnel",
+  "codigo": "P 15",
+  "categoria": "Advertencias sobre características físicas de la vía",
+  "match": "exacto"
+ },
+ {
+  "slug": "uso-de-cadenas-para-nieve",
+  "archivo": "assets/senales/uso-de-cadenas-para-nieve.webp",
+  "nombre": "Uso de Cadenas para Nieve",
+  "codigo": "R 19",
+  "categoria": "De restricción",
+  "match": "exacto"
+ },
+ {
+  "slug": "vientos-fuertes-laterales",
+  "archivo": "assets/senales/vientos-fuertes-laterales.webp",
+  "nombre": "Vientos Fuertes Laterales",
+  "codigo": "P 30",
+  "categoria": "Posibilidad de riesgos eventuales",
+  "match": "exacto"
+ }
+]
