@@ -1,6 +1,6 @@
-// Íconos SVG inline, monocromáticos (heredan currentColor vía la clase
-// "icono"). Set propio estilo Lucide: viewBox 24x24, stroke-width 1.5
-// consistente, trazo redondeado, sin relleno.
+// Íconos SVG inline, monocromáticos (heredan currentColor vía la clase "icono").
+// Paths de Lucide (https://lucide.dev, licencia ISC): viewBox 24x24, stroke-width
+// 1.5 y trazo redondeado en todos.
 // Todos son decorativos (aria-hidden): siempre van acompañados de texto.
 
 function svg(inner) {
@@ -8,18 +8,33 @@ function svg(inner) {
 }
 
 export const ICONS = {
-  inicio: svg('<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-7h4v7h4a1 1 0 0 0 1-1V9.5"/>'),
-  examen: svg('<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3.5A1.5 1.5 0 0 1 10.5 2h3A1.5 1.5 0 0 1 15 3.5V4"/><path d="m9 13 2 2 4-4.5"/>'),
-  estudio: svg('<path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11a1 1 0 0 1 1 1v15a1 1 0 0 0-1-1H5.5A1.5 1.5 0 0 1 4 17.5z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13a1 1 0 0 0-1 1v15a1 1 0 0 1 1-1h5.5a1.5 1.5 0 0 0 1.5-1.5z"/>'),
-  errores: svg('<path d="M3 12a9 9 0 1 0 2.6-6.3L3 8"/><path d="M3 3v5h5"/>'),
-  estadisticas: svg('<path d="M4 20V10"/><path d="M12 20V4"/><path d="M20 20v-7"/><path d="M2 20h20"/>'),
-  senales: svg('<path d="M4 9h11l3 3-3 3H4z"/><path d="M4 21V4"/>'),
-  advertencia: svg('<path d="M10.3 3.9 2 18a1 1 0 0 0 .9 1.5h18.2a1 1 0 0 0 .9-1.5L13.7 3.9a1 1 0 0 0-1.7 0Z"/><path d="M12 9.5v4"/><path d="M12 16.75h.01"/>'),
-  reloj: svg('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>'),
-  correcto: svg('<circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.5 2.5L16 9.5"/>'),
-  incorrecto: svg('<circle cx="12" cy="12" r="9"/><path d="m9 9 6 6"/><path d="m15 9-6 6"/>'),
-  info: svg('<circle cx="12" cy="12" r="9"/><path d="M12 8h.01"/><path d="M11 11h1v5"/><path d="M10.5 16h3"/>'),
-  sol: svg('<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.3 17.7-1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/>'),
-  luna: svg('<path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11Z"/>'),
-  monitor: svg('<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/>'),
+  // house
+  inicio: svg('<path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>'),
+  // clipboard-check. Antes era un rect con pestaña que parecía una pila.
+  examen: svg('<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/>'),
+  // book-open
+  estudio: svg('<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>'),
+  // rotate-ccw
+  errores: svg('<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>'),
+  // chart-column. Antes las barras flotaban sin eje y se leían como una "Ш".
+  estadisticas: svg('<path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>'),
+  // octagon: la forma del PARE. Antes era una banderita, que no dice nada de
+  // una señal de tránsito.
+  senales: svg('<path d="M2.586 16.726A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2h6.624a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586z"/>'),
+  // triangle-alert
+  advertencia: svg('<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>'),
+  // clock
+  reloj: svg('<path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/>'),
+  // circle-check
+  correcto: svg('<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>'),
+  // circle-x
+  incorrecto: svg('<circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/>'),
+  // info
+  info: svg('<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>'),
+  // sun
+  sol: svg('<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>'),
+  // moon
+  luna: svg('<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"/>'),
+  // monitor
+  monitor: svg('<rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/>'),
 };

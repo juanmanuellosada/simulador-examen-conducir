@@ -60,7 +60,7 @@
 
 ## 8. Corrección: separar `--color-primary` (texto) de `--color-primary-superficie` (fondo)
 
-- [ ] 8.1 Agregar tokens nuevos `--color-primary-superficie` / `--color-sobre-primary-superficie` en `:root` (claro: navy/blanco) y en `:root[data-theme="oscuro"]`/el bloque `@media` de oscuro (un tono NO saturado, distinguible de `--color-surface`, con texto claro encima).
-- [ ] 8.2 Migrar a `--color-primary-superficie`/`--color-sobre-primary-superficie` todos los usos de `--color-primary` como FONDO de superficie grande: header, skip-link, botón primario (y cualquier otro que aplique). Dejar `--color-primary` sin cambios donde se usa como texto/acento/borde (ej. label del nav activo).
-- [ ] 8.3 Rehacer la tabla de contraste WCAG para los pares nuevos, en ambos temas (texto normal ≥4.5:1).
-- [ ] 8.4 Screenshot del header en ambos temas — confirmar que en oscuro no queda texto oscuro sobre fondo saturado, y que el nav activo sigue legible (ahí primary sigue como texto brillante).
+- [x] 8.1 Agregar tokens nuevos `--color-primary-superficie` / `--color-sobre-primary-superficie` en `:root` (claro: navy/blanco) y en `:root[data-theme="oscuro"]`/el bloque `@media` de oscuro (un tono NO saturado, distinguible de `--color-surface`, con texto claro encima).
+- [x] 8.2 Migrar a `--color-primary-superficie`/`--color-sobre-primary-superficie` todos los usos de `--color-primary` como FONDO de superficie grande: header, skip-link, botón primario (y cualquier otro que aplique). Dejar `--color-primary` sin cambios donde se usa como texto/acento/borde (ej. label del nav activo).
+- [x] 8.3 Rehacer la tabla de contraste WCAG para los pares nuevos, en ambos temas (texto normal ≥4.5:1).
+- [x] 8.4 Screenshot del header en ambos temas — confirmar que en oscuro no queda texto oscuro sobre fondo saturado, y que el nav activo sigue legible (ahí primary sigue como texto brillante).

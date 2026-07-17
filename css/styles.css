@@ -160,6 +160,14 @@ body {
   outline: var(--focus-ring);
   outline-offset: 2px;
 }
+/* El foco programático sobre <main tabindex="-1"> (que se usa para que los
+   lectores de pantalla anuncien el cambio de pantalla) no debe dibujar un
+   anillo alrededor de TODO el contenido. Los targets con tabindex="-1" no son
+   navegables por teclado, así que no necesitan indicador visible. */
+[tabindex="-1"]:focus,
+[tabindex="-1"]:focus-visible {
+  outline: none;
+}
 
 .app-header {
   padding: var(--espacio-4);
@@ -305,6 +313,10 @@ main {
 .boton-primario {
   background: var(--color-primary-superficie);
   color: var(--color-sobre-primary-superficie);
+  /* Sin este borde, en oscuro el botón se confunde con el fondo de página
+     (primary-superficie y bg son casi idénticos ahí): mismo recurso que
+     el borde inferior del header para dar límite visible sin banda saturada. */
+  border-color: var(--color-primary);
 }
 .boton-secundario {
   background: var(--color-surface);
@@ -419,7 +431,14 @@ main {
   max-width: 100%;
   height: auto;
   max-height: 220px;
-  margin: 0.5rem auto;
+  margin: var(--espacio-3) auto;
+  /* Las señales e imágenes del examen vienen con fondo blanco (así son las
+     señales reales). Sin una placa que las contenga, en modo oscuro quedan
+     como recuadros blancos flotando sobre el fondo. La placa las convierte
+     en algo deliberado y de paso les da aire. */
+  background: #ffffff;
+  border-radius: 8px;
+  padding: var(--espacio-2);
 }
 
 /* Eliminatoria: reprueba el examen entero, tiene que distinguirse a simple
@@ -757,7 +776,9 @@ main {
   width: 100%;
   height: 64px;
   object-fit: contain;
-  background: var(--color-surface);
+  /* Placa blanca: las señales oficiales vienen con fondo blanco, así que
+     sobre --color-surface oscuro quedarían como recuadros blancos sueltos. */
+  background: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: 8px;
   margin-bottom: 0.25rem;
@@ -824,3 +845,56 @@ main {
     grid-template-columns: repeat(8, 1fr);
   }
 }
+
+/* --- Escritorio: la barra de abajo pasa a ser sidebar (>=1024px) ---
+   La bottom nav es un patrón de celular: en una pantalla ancha queda pegada
+   al borde inferior, lejos del contenido y desperdiciando el ancho. A partir
+   de 1024px se convierte en una barra lateral fija, que es lo que corresponde
+   en escritorio (Material Adaptive). Misma marcación y mismo JS: cambia solo
+   la presentación. */
+@media (min-width: 1024px) {
+  .bottom-nav {
+    top: 0;
+    bottom: 0;
+    right: auto;
+    width: 220px;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--espacio-1);
+    padding: var(--espacio-4) var(--espacio-2);
+    border-top: none;
+    border-right: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+  .bottom-nav button {
+    flex: 0 0 auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: var(--espacio-3);
+    width: 100%;
+    font-size: 0.9rem;
+    padding: var(--espacio-3);
+    border-radius: 8px;
+    text-align: left;
+  }
+  .bottom-nav button:hover {
+    background: var(--color-muted);
+  }
+  .bottom-nav button.activo {
+    background: color-mix(in srgb, var(--color-primary) 14%, transparent);
+  }
+
+  body {
+    /* Ya no hay barra abajo que tapar; el espacio lo ocupa la sidebar. */
+    padding-bottom: 0;
+    padding-left: 220px;
+  }
+  .app-header {
+    padding-left: calc(220px + var(--espacio-4));
+  }
+  main {
+    padding: var(--espacio-6);
+  }
+}
+
+
