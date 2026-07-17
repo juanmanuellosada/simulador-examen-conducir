@@ -114,6 +114,19 @@
   box-sizing: border-box;
 }
 
+/* Los controles de formulario NO heredan font ni color del body: el navegador
+   les impone los suyos (color negro de `buttontext`). Por eso los títulos de
+   los botones del inicio se veían negros en modo oscuro mientras sus
+   descripciones —que sí declaraban color— se leían bien.
+   Se arregla acá, para toda la app, y no botón por botón. */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
 /* Oculta visualmente pero deja accesible a lectores de pantalla. */
 .sr-only {
   position: absolute;
