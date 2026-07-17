@@ -15,6 +15,17 @@ export async function renderEstudio(container, ctx) {
   }
 }
 
+const FUENTES = [
+  {
+    clave: 'cuadernillo_municipal',
+    label: 'Cuadernillo de mi municipio',
+    nota:
+      'El examen se rinde en papel y el cuadernillo debe devolverse al rendir, lo que sugiere que el examen podría salir de ese material — es una inferencia razonable, no un hecho confirmado.',
+  },
+  { clave: 'pba_oficial', label: 'Banco oficial provincial' },
+  { clave: 'manual', label: 'Manual del Conductor' },
+];
+
 async function renderSeleccion(container, ctx) {
   const todas = await cargarPreguntas();
   const secciones = [...new Set(todas.map((p) => p.seccion))];
@@ -24,6 +35,11 @@ async function renderSeleccion(container, ctx) {
       <h2>Estudio por tema</h2>
       <p>Elegí una sección para practicar sin cronómetro, con feedback inmediato.</p>
       <div class="lista-selección" id="lista-secciones"></div>
+    </section>
+    <section class="tarjeta">
+      <h2>Estudio por fuente</h2>
+      <p>Elegí de dónde salen las preguntas a practicar.</p>
+      <div class="lista-selección" id="lista-fuentes"></div>
     </section>
   `;
 
@@ -44,6 +60,24 @@ async function renderSeleccion(container, ctx) {
     btn.textContent = `${nombreSeccion(sec)} (${preguntasSeccion.length})`;
     btn.addEventListener('click', () => iniciarSesion(preguntasSeccion, container, ctx));
     lista.appendChild(btn);
+  });
+
+  const listaFuentes = container.querySelector('#lista-fuentes');
+
+  FUENTES.forEach(({ clave, label, nota }) => {
+    const preguntasFuente = todas.filter((p) => p.fuente === clave);
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'boton boton-secundario boton-ancho';
+    btn.textContent = `${label} (${preguntasFuente.length})`;
+    btn.addEventListener('click', () => iniciarSesion(preguntasFuente, container, ctx));
+    listaFuentes.appendChild(btn);
+    if (nota) {
+      const p = document.createElement('p');
+      p.className = 'ayuda';
+      p.textContent = nota;
+      listaFuentes.appendChild(p);
+    }
   });
 }
 

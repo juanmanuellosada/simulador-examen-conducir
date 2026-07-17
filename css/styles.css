@@ -1,46 +1,130 @@
 /* Simulador de examen teórico — mobile-first, sin frameworks. */
 
+/* Design tokens — Data-Dense Dashboard: navy como color de interfaz,
+   verde/rojo/ámbar reservados exclusivamente a correcta/incorrecta/
+   eliminatoria (un color, un significado). Tema oscuro vía
+   :root[data-theme="oscuro"], con @media como fallback para "sistema". */
 :root {
-  --color-bg: #f5f6f4;
+  --color-bg: #f8fafc;
   --color-surface: #ffffff;
-  --color-text: #1a1c19;
-  --color-text-muted: #52564f;
-  --color-border: #d7dbd2;
-  --color-primary: #1b5e20;
-  --color-primary-contraste: #ffffff;
-  --color-correcta: #1b7a2d;
-  --color-correcta-bg: #e3f5e5;
-  --color-incorrecta: #b3261e;
-  --color-incorrecta-bg: #fbe9e7;
-  --color-eliminatoria: #8a5300;
-  --color-eliminatoria-bg: #fff3cd;
-  --color-flojo-bg: #fdece9;
-  --focus-ring: 3px solid #2962ff;
+  --color-text: #020617;
+  --color-text-muted: #475569;
+  --color-border: #e2e8f0;
+  --color-muted: #e8ecf1;
+  --color-primary: #0f172a;
+  /* primary se usa para dos cosas incompatibles: como TEXTO/acento (nav activo, links) y
+     como FONDO de superficies grandes (header, botón primario). En modo oscuro el acento
+     tiene que ser claro para leerse sobre el fondo, pero si ese mismo color claro se usa
+     de fondo obliga a poner texto oscuro encima — que es justo lo que no queremos.
+     Por eso van tokens separados: -superficie es SOLO para cuando primary hace de fondo. */
+  --color-primary-superficie: #0f172a;
+  --color-sobre-primary-superficie: #ffffff;
+  --color-secondary: #334155;
+  --color-accent: #0369a1;
+  --color-correcta: #166534;
+  --color-correcta-bg: #dcfce7;
+  --color-incorrecta: #b91c1c;
+  --color-incorrecta-bg: #fee2e2;
+  --color-eliminatoria: #92400e;
+  --color-eliminatoria-bg: #fef3c7;
+  --color-flojo-bg: #fee2e2;
+  --focus-ring: 3px solid var(--color-accent);
   --radio-toque-min: 44px;
+
+  --espacio-1: 4px;
+  --espacio-2: 8px;
+  --espacio-3: 12px;
+  --espacio-4: 16px;
+  --espacio-5: 20px;
+  --espacio-6: 24px;
+
+  --icono-sm: 18px;
+  --icono-md: 24px;
+}
+
+:root[data-theme="oscuro"] {
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-text: #f1f5f9;
+  --color-text-muted: #94a3b8;
+  --color-border: #334155;
+  --color-muted: #1e293b;
+  --color-primary: #38bdf8;
+  /* En oscuro, primary de FONDO va oscuro con texto claro (no celeste con texto negro).
+     Es un tono intermedio entre --color-bg y --color-surface para que el header no se
+     confunda con las tarjetas; el acento de marca lo da el borde inferior. */
+  --color-primary-superficie: #172033;
+  --color-sobre-primary-superficie: #f1f5f9;
+  --color-secondary: #cbd5e1;
+  --color-accent: #7dd3fc;
+  --color-correcta: #4ade80;
+  --color-correcta-bg: #0f3d22;
+  --color-incorrecta: #f87171;
+  --color-incorrecta-bg: #45151a;
+  --color-eliminatoria: #fbbf24;
+  --color-eliminatoria-bg: #3f2d0b;
+  --color-flojo-bg: #45151a;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #14161a;
-    --color-surface: #1f2226;
-    --color-text: #eceff1;
-    --color-text-muted: #b0b6bd;
-    --color-border: #3a3f45;
-    --color-primary: #4caf50;
-    --color-primary-contraste: #0c1a0d;
-    --color-correcta: #66bb6a;
-    --color-correcta-bg: #16321a;
-    --color-incorrecta: #ef5350;
-    --color-incorrecta-bg: #3a1a18;
-    --color-eliminatoria: #ffca28;
-    --color-eliminatoria-bg: #3a2f0a;
-    --color-flojo-bg: #3a1a18;
-    --focus-ring: 3px solid #82b1ff;
+  :root:not([data-theme="claro"]) {
+    --color-bg: #0f172a;
+    --color-surface: #1e293b;
+    --color-text: #f1f5f9;
+    --color-text-muted: #94a3b8;
+    --color-border: #334155;
+    --color-muted: #1e293b;
+    --color-primary: #38bdf8;
+    --color-primary-superficie: #172033;
+    --color-sobre-primary-superficie: #f1f5f9;
+    --color-secondary: #cbd5e1;
+    --color-accent: #7dd3fc;
+    --color-correcta: #4ade80;
+    --color-correcta-bg: #0f3d22;
+    --color-incorrecta: #f87171;
+    --color-incorrecta-bg: #45151a;
+    --color-eliminatoria: #fbbf24;
+    --color-eliminatoria-bg: #3f2d0b;
+    --color-flojo-bg: #45151a;
   }
+}
+
+/* Lexend, autohospedada (sin CDN). Fuente variable: un solo archivo cubre
+   todos los pesos (100–900) por subset. */
+@font-face {
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonts/lexend-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonts/lexend-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113,
+    U+2C60-2C7F, U+A720-A7FF;
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* Oculta visualmente pero deja accesible a lectores de pantalla. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 html {
@@ -52,7 +136,7 @@ body {
   min-height: 100vh;
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: Lexend, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   font-size: 17px;
   line-height: 1.5;
   padding-bottom: calc(64px + env(safe-area-inset-bottom));
@@ -62,9 +146,9 @@ body {
   position: absolute;
   left: -999px;
   top: 0;
-  background: var(--color-primary);
-  color: var(--color-primary-contraste);
-  padding: 0.75rem 1rem;
+  background: var(--color-primary-superficie);
+  color: var(--color-sobre-primary-superficie);
+  padding: var(--espacio-3) var(--espacio-4);
   z-index: 100;
 }
 .skip-link:focus {
@@ -78,9 +162,12 @@ body {
 }
 
 .app-header {
-  padding: 1rem;
-  background: var(--color-primary);
-  color: var(--color-primary-contraste);
+  padding: var(--espacio-4);
+  background: var(--color-primary-superficie);
+  color: var(--color-sobre-primary-superficie);
+  /* El acento de marca lo da este borde, no una banda de color saturada:
+     así el header no compite con el contenido en modo oscuro. */
+  border-bottom: 3px solid var(--color-primary);
   text-align: center;
 }
 .app-header h1 {
@@ -93,11 +180,50 @@ body {
   opacity: 0.9;
 }
 
+.theme-switcher-slot {
+  margin-top: var(--espacio-2);
+  display: flex;
+  justify-content: center;
+}
+.theme-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espacio-2);
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.theme-switcher-opcion {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--color-sobre-primary-superficie);
+  opacity: 0.75;
+  cursor: pointer;
+  padding: 0.25rem 0.4rem;
+}
+.theme-switcher-opcion:has(input:checked) {
+  opacity: 1;
+  font-weight: 700;
+}
+.theme-switcher-opcion .icono {
+  width: var(--icono-sm);
+  height: var(--icono-sm);
+}
+.theme-switcher-opcion input {
+  accent-color: var(--color-primary);
+  width: 14px;
+  height: 14px;
+  margin: 0;
+}
+
 main {
   display: block;
   max-width: 640px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: var(--espacio-4);
 }
 
 .bottom-nav {
@@ -126,8 +252,8 @@ main {
   cursor: pointer;
 }
 .bottom-nav .icono {
-  width: 21px;
-  height: 21px;
+  width: var(--icono-md);
+  height: var(--icono-md);
 }
 .bottom-nav button.activo {
   color: var(--color-primary);
@@ -136,8 +262,8 @@ main {
 
 /* --- Íconos SVG inline (reemplazan a los emojis usados antes) --- */
 .icono {
-  width: 1.15em;
-  height: 1.15em;
+  width: var(--icono-sm);
+  height: var(--icono-sm);
   vertical-align: -0.2em;
   flex-shrink: 0;
 }
@@ -148,8 +274,8 @@ main {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 12px;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: var(--espacio-4);
+  margin-bottom: var(--espacio-4);
 }
 
 .tarjeta h2 {
@@ -177,8 +303,8 @@ main {
   width: 100%;
 }
 .boton-primario {
-  background: var(--color-primary);
-  color: var(--color-primary-contraste);
+  background: var(--color-primary-superficie);
+  color: var(--color-sobre-primary-superficie);
 }
 .boton-secundario {
   background: var(--color-surface);
@@ -208,7 +334,8 @@ main {
 .badge-eliminatoria {
   background: var(--color-eliminatoria-bg);
   color: var(--color-eliminatoria);
-  border: 1px dashed var(--color-eliminatoria);
+  border: 1.5px dashed var(--color-eliminatoria);
+  font-weight: 700;
 }
 .badge-ok {
   background: var(--color-correcta-bg);
@@ -227,7 +354,7 @@ main {
 
 .resumen-grid {
   display: flex;
-  gap: 0.75rem;
+  gap: var(--espacio-3);
   text-align: center;
 }
 .resumen-item {
@@ -248,7 +375,7 @@ main {
 .menu-modos {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--espacio-3);
 }
 .boton-modo {
   display: flex;
@@ -259,7 +386,7 @@ main {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 12px;
-  padding: 1rem;
+  padding: var(--espacio-4);
   min-height: 64px;
   cursor: pointer;
 }
@@ -305,13 +432,13 @@ main {
 .opciones {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  margin-top: 0.75rem;
+  gap: var(--espacio-2);
+  margin-top: var(--espacio-3);
 }
 .opcion {
   min-height: var(--radio-toque-min);
   text-align: left;
-  padding: 0.75rem 1rem;
+  padding: var(--espacio-3) var(--espacio-4);
   border-radius: 10px;
   border: 2px solid var(--color-border);
   background: var(--color-surface);
@@ -328,17 +455,11 @@ main {
   color: var(--color-correcta);
   font-weight: 700;
 }
-.opcion-correcta::before {
-  content: "✓ ";
-}
 .opcion-incorrecta {
   border-color: var(--color-incorrecta);
   background: var(--color-incorrecta-bg);
   color: var(--color-incorrecta);
   font-weight: 700;
-}
-.opcion-incorrecta::before {
-  content: "✗ ";
 }
 .opcion-seleccionada {
   border-color: var(--color-primary);
@@ -350,8 +471,8 @@ main {
 }
 
 .feedback {
-  margin-top: 1rem;
-  padding: 0.85rem;
+  margin-top: var(--espacio-4);
+  padding: var(--espacio-3);
   border-radius: 10px;
 }
 .feedback-ok {
@@ -395,8 +516,8 @@ main {
   border: 1px solid var(--color-eliminatoria);
   border-left-width: 5px;
   border-radius: 10px;
-  padding: 0.85rem 1rem;
-  margin-top: 0.75rem;
+  padding: var(--espacio-3) var(--espacio-4);
+  margin-top: var(--espacio-3);
 }
 .aviso-conflicto-titulo {
   font-weight: 700;
@@ -422,8 +543,8 @@ main {
 .marcar-revision {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: var(--espacio-2);
+  margin-top: var(--espacio-4);
   min-height: var(--radio-toque-min);
 }
 .marcar-revision input {
@@ -440,10 +561,11 @@ main {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 10px;
-  padding: 0.5rem 0.75rem;
+  padding: var(--espacio-2) var(--espacio-3);
   font-weight: 700;
+  font-variant-numeric: tabular-nums;
   text-align: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--espacio-3);
 }
 .cronometro-urgente {
   background: var(--color-incorrecta-bg);
@@ -454,8 +576,8 @@ main {
 .acciones-examen {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 1rem 0;
+  gap: var(--espacio-2);
+  margin: var(--espacio-4) 0;
 }
 .acciones-examen .boton {
   flex: 1;
@@ -493,8 +615,8 @@ main {
 .grilla-revision {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 0.5rem;
-  margin: 0.75rem 0;
+  gap: var(--espacio-2);
+  margin: var(--espacio-3) 0;
 }
 .celda-revision {
   min-height: var(--radio-toque-min);
@@ -539,16 +661,17 @@ main {
   text-align: left;
   background: var(--color-eliminatoria-bg);
   border: 1px dashed var(--color-eliminatoria);
+  border-left-width: 5px;
   border-radius: 10px;
-  padding: 0.75rem 1rem;
-  margin: 1rem 0;
+  padding: var(--espacio-3) var(--espacio-4);
+  margin: var(--espacio-4) 0;
   color: var(--color-eliminatoria);
 }
 .acciones-resultado {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  margin-top: 1rem;
+  gap: var(--espacio-2);
+  margin-top: var(--espacio-4);
 }
 
 .revision-item {
@@ -570,6 +693,7 @@ main {
   display: flex;
   justify-content: space-between;
   font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
   margin-bottom: 0.25rem;
 }
 .barra {
@@ -590,7 +714,7 @@ main {
 
 .campo {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: var(--espacio-4);
 }
 .campo span {
   display: block;
@@ -640,6 +764,55 @@ main {
 }
 .senal-codigo {
   display: block;
+}
+
+/* --- Diálogos de confirmación (reemplazan a window.confirm) --- */
+
+.dialogo-confirmacion {
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  width: calc(100% - 2rem);
+  max-width: 420px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: scale(0.96) translateY(8px);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+.dialogo-confirmacion.dialogo-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+.dialogo-confirmacion::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+.dialogo-cuerpo {
+  padding: var(--espacio-5) var(--espacio-5) var(--espacio-3);
+}
+.dialogo-titulo {
+  margin: 0 0 var(--espacio-2);
+  font-size: 1.1rem;
+}
+.dialogo-mensaje {
+  margin: 0;
+}
+.dialogo-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2);
+  padding: 0 var(--espacio-5) var(--espacio-5);
+}
+.dialogo-acciones .boton {
+  flex: 1;
+  min-width: 120px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialogo-confirmacion {
+    transition: none;
+  }
 }
 
 /* --- Pantallas más anchas: dos columnas donde tiene sentido --- */

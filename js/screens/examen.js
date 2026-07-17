@@ -3,6 +3,7 @@ import { cargarProgreso, registrarRespuesta, cargarExamen, guardarExamen, borrar
 import { prepararPreguntas } from '../shuffle.js';
 import { escapeHtml, formatTiempo, renderBloqueFuente } from '../util.js';
 import { ICONS } from '../icons.js';
+import { confirmar } from '../dialogo.js';
 
 const CANTIDAD_DEFAULT = 40;
 const UMBRAL_DEFAULT = 0.75;
@@ -82,6 +83,7 @@ async function renderConfig(container, ctx) {
           <span>Umbral de aprobación (%)</span>
           <input type="number" name="umbral" min="1" max="100" value="${Math.round(UMBRAL_DEFAULT * 100)}" required />
         </label>
+        <p class="ayuda">75% = norma provincial oficial · 90% = lo que dice el cuadernillo municipal</p>
         <p class="ayuda">Tiempo máximo: 2 horas. Además, todas las preguntas eliminatorias deben estar bien para aprobar.</p>
         <button type="submit" class="boton boton-primario boton-ancho">Comenzar examen</button>
       </form>
@@ -269,12 +271,20 @@ function renderRevisarAntesDeEntregar(container, ctx, examen) {
 
   container.querySelector('#btn-entregar').addEventListener('click', async () => {
     if (sinContestar > 0) {
-      const ok = window.confirm(
-        `Tenés ${sinContestar} pregunta${sinContestar === 1 ? '' : 's'} sin contestar. ¿Entregar igual?`
-      );
+      const ok = await confirmar({
+        titulo: 'Preguntas sin contestar',
+        mensaje: `Tenés ${sinContestar} pregunta${sinContestar === 1 ? '' : 's'} sin contestar. ¿Entregar igual?`,
+        textoConfirmar: 'Entregar igual',
+        textoCancelar: 'Volver',
+      });
       if (!ok) return;
     } else {
-      const ok = window.confirm('¿Confirmás la entrega del examen?');
+      const ok = await confirmar({
+        titulo: 'Confirmar entrega',
+        mensaje: '¿Confirmás la entrega del examen?',
+        textoConfirmar: 'Entregar examen',
+        textoCancelar: 'Volver',
+      });
       if (!ok) return;
     }
     await finalizarExamen(examen);
@@ -308,7 +318,8 @@ function calcularResultado(examen) {
     .map((p, i) => ({ p, i }))
     .filter(({ p, i }) => p.eliminatoria && examen.respuestas[i] !== p.correcta);
   const aprobado = aprobadoPorPuntaje && eliminatoriasFalladas.length === 0;
-  return { correctas, total, porcentaje, aprobadoPorPuntaje, eliminatoriasFalladas, aprobado };
+  const enZonaDeRiesgo = aprobado && porcentaje < 0.9;
+  return { correctas, total, porcentaje, aprobadoPorPuntaje, eliminatoriasFalladas, aprobado, enZonaDeRiesgo };
 }
 
 function renderResultado(container, ctx, examen) {
@@ -331,7 +342,14 @@ function renderResultado(container, ctx, examen) {
               .join('')}
           </ul>
         </div>`
-          : ''
+          : r.enZonaDeRiesgo
+            ? `
+        <div class="aviso-conflicto" role="note">
+          <p class="aviso-conflicto-titulo">${ICONS.advertencia} Zona de riesgo: aprobaste, pero por debajo del 90%</p>
+          <p>El 75% es el umbral oficial verificado de la Provincia de Buenos Aires. El cuadernillo del Municipio de Malvinas Argentinas menciona 90%. No está confirmado cuál aplica el municipio al corregir en la práctica.</p>
+          <p><strong>Recomendación:</strong> apuntá a 90% o más para estar tranquilo con cualquiera de los dos criterios.</p>
+        </div>`
+            : ''
       }
       <div class="acciones-resultado">
         <button type="button" class="boton boton-primario" id="btn-revision">Ver revisión completa</button>

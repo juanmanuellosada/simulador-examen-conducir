@@ -4,6 +4,8 @@
 
 const KEY_PROGRESO = 'sim_examen_progreso_v1';
 const KEY_EXAMEN = 'sim_examen_en_curso_v1';
+const KEY_TEMA = 'sim_examen_tema_v1';
+const TEMAS_VALIDOS = ['claro', 'oscuro', 'sistema'];
 
 function estadoInicial() {
   return {
@@ -156,5 +158,26 @@ export function borrarExamen() {
     localStorage.removeItem(KEY_EXAMEN);
   } catch (e) {
     /* noop */
+  }
+}
+
+// --- Preferencia de tema (claro/oscuro/sistema) ---
+
+export function cargarTema() {
+  try {
+    const raw = localStorage.getItem(KEY_TEMA);
+    return TEMAS_VALIDOS.includes(raw) ? raw : 'sistema';
+  } catch (e) {
+    console.warn('[storage] no se pudo leer la preferencia de tema, uso "sistema".', e);
+    return 'sistema';
+  }
+}
+
+export function guardarTema(valor) {
+  if (!TEMAS_VALIDOS.includes(valor)) return;
+  try {
+    localStorage.setItem(KEY_TEMA, valor);
+  } catch (e) {
+    console.warn('[storage] no se pudo guardar la preferencia de tema.', e);
   }
 }

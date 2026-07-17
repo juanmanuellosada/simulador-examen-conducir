@@ -48,8 +48,14 @@ export function renderPreguntaPractica(container, pregunta, onRespondida, onSigu
 
       [...opcionesEl.children].forEach((el, i) => {
         el.disabled = true;
-        if (i === pregunta.correcta) el.classList.add('opcion-correcta');
-        if (i === idx && !esCorrecta) el.classList.add('opcion-incorrecta');
+        if (i === pregunta.correcta) {
+          el.classList.add('opcion-correcta');
+          el.innerHTML = `${ICONS.correcto} ${escapeHtml(pregunta.opciones[i])}`;
+        }
+        if (i === idx && !esCorrecta) {
+          el.classList.add('opcion-incorrecta');
+          el.innerHTML = `${ICONS.incorrecto} ${escapeHtml(pregunta.opciones[i])}`;
+        }
       });
 
       feedbackEl.hidden = false;

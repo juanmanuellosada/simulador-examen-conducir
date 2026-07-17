@@ -5,7 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Simulador de examen teórico de conducir</title>
   <meta name="description" content="Simulador del examen teórico de conducir clase B (Provincia de Buenos Aires): examen real cronometrado, estudio por tema, repaso de errores y estadísticas." />
-  <meta name="theme-color" content="#1b5e20" />
+  <meta name="theme-color" content="#0F172A" />
+  <script>
+    // Anti-FOUC: aplica el tema guardado antes del primer paint. Duplica el
+    // mínimo de lectura de storage.js (que es un módulo ES y no llega a
+    // tiempo); la escritura y validación completa viven en storage.js.
+    (function () {
+      try {
+        var t = localStorage.getItem('sim_examen_tema_v1');
+        if (t === 'claro' || t === 'oscuro') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -14,6 +25,7 @@
   <header class="app-header">
     <h1>Simulador Examen Teórico</h1>
     <p class="app-header-sub">Clase B — Provincia de Buenos Aires</p>
+    <div id="theme-switcher-slot" class="theme-switcher-slot"></div>
   </header>
 
   <main id="app" tabindex="-1" aria-live="polite">
@@ -22,27 +34,21 @@
 
   <nav class="bottom-nav" aria-label="Navegación principal">
     <button type="button" data-route="inicio" aria-current="page">
-      <svg class="icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>
       <span>Inicio</span>
     </button>
     <button type="button" data-route="examen">
-      <svg class="icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="M9 12l2 2 4-4"/></svg>
       <span>Examen</span>
     </button>
     <button type="button" data-route="estudio">
-      <svg class="icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v18H6.5A2.5 2.5 0 0 1 4 18.5V5.5z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v18h5.5a2.5 2.5 0 0 0 2.5-2.5V5.5z"/></svg>
       <span>Estudio</span>
     </button>
     <button type="button" data-route="errores">
-      <svg class="icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12a8 8 0 0 1 14.5-4.5M20 12a8 8 0 0 1-14.5 4.5"/><path d="M18.5 3v4.5H14"/><path d="M5.5 21v-4.5H10"/></svg>
       <span>Errores</span>
     </button>
     <button type="button" data-route="senales">
-      <svg class="icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 2 20h20L12 3z"/><path d="M12 9.5v4"/><path d="M12 16.5h.01"/></svg>
       <span>Señales</span>
     </button>
     <button type="button" data-route="estadisticas">
-      <svg class="icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20V10M11 20V4M18 20v-6"/><path d="M2 20h20"/></svg>
       <span>Stats</span>
     </button>
   </nav>

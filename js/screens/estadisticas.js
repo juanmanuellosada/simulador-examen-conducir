@@ -1,6 +1,7 @@
 import { cargarPreguntas } from '../data.js';
 import { cargarProgreso, resetearProgreso, borrarExamen } from '../storage.js';
 import { escapeHtml, nombreSeccion } from '../util.js';
+import { confirmar } from '../dialogo.js';
 
 function agregarPor(clave, todas, progresoPreguntas) {
   const grupos = new Map(); // clave -> { intentos, aciertos }
@@ -40,6 +41,11 @@ export async function renderEstadisticas(container, ctx) {
   const porSeccion = agregarPor('seccion', todas, estado.preguntas).map((s) => ({
     ...s,
     nombre: nombreSeccion(s.nombre),
+  }));
+  const fuenteLabels = new Map(todas.map((p) => [p.fuente, p.fuente_label]));
+  const porFuente = agregarPor('fuente', todas, estado.preguntas).map((s) => ({
+    ...s,
+    nombre: fuenteLabels.get(s.nombre) || s.nombre,
   }));
 
   const temasFlojosIds = new Set(
@@ -91,6 +97,11 @@ export async function renderEstadisticas(container, ctx) {
       <h3 id="titulo-temas">Por tema</h3>
       ${porTema.map((t) => barra(t.nombre, t.porcentaje, t.intentos, temasFlojosIds.has(t.nombre))).join('')}
     </section>
+
+    <section class="tarjeta" aria-labelledby="titulo-fuentes">
+      <h3 id="titulo-fuentes">Por fuente</h3>
+      ${porFuente.map((f) => barra(f.nombre, f.porcentaje, f.intentos, false)).join('')}
+    </section>
     `
         : ''
     }
@@ -100,10 +111,14 @@ export async function renderEstadisticas(container, ctx) {
     </section>
   `;
 
-  container.querySelector('#btn-reset').addEventListener('click', () => {
-    const ok = window.confirm(
-      'Esto borra todo tu progreso, estadísticas y el examen en curso. ¿Confirmás?'
-    );
+  container.querySelector('#btn-reset').addEventListener('click', async () => {
+    const ok = await confirmar({
+      titulo: 'Reiniciar todo tu progreso',
+      mensaje: 'Esto borra todo tu progreso, estadísticas y el examen en curso. ¿Confirmás?',
+      textoConfirmar: 'Reiniciar progreso',
+      textoCancelar: 'Cancelar',
+      peligro: true,
+    });
     if (!ok) return;
     resetearProgreso();
     borrarExamen();

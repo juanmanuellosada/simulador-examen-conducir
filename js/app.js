@@ -4,6 +4,8 @@ import { renderEstudio, reiniciarSesionEstudio } from './screens/estudio.js';
 import { renderErrores, reiniciarSesionErrores } from './screens/errores.js';
 import { renderEstadisticas } from './screens/estadisticas.js';
 import { renderSenales, cleanup as cleanupSenales } from './screens/senales.js';
+import { ICONS } from './icons.js';
+import { cargarTema, guardarTema } from './storage.js';
 
 const RUTAS = {
   inicio: renderInicio,
@@ -16,6 +18,13 @@ const RUTAS = {
 
 const app = document.getElementById('app');
 const botonesNav = document.querySelectorAll('[data-route]');
+
+// Una sola fuente de verdad para los íconos: el nav se puebla desde ICONS
+// en vez de tener SVGs hardcodeados en index.html (evita que ambos diverjan).
+botonesNav.forEach((btn) => {
+  const icono = ICONS[btn.dataset.route];
+  if (icono) btn.insertAdjacentHTML('afterbegin', icono);
+});
 
 let rutaActual = null;
 
@@ -67,6 +76,52 @@ async function renderRuta() {
 botonesNav.forEach((btn) => {
   btn.addEventListener('click', () => navigate(btn.dataset.route));
 });
+
+// --- Theme switcher (Claro / Oscuro / Sistema) ---
+
+const TEMA_OPCIONES = [
+  { valor: 'claro', etiqueta: 'Claro', icono: 'sol' },
+  { valor: 'oscuro', etiqueta: 'Oscuro', icono: 'luna' },
+  { valor: 'sistema', etiqueta: 'Sistema', icono: 'monitor' },
+];
+
+function aplicarTema(valor) {
+  if (valor === 'claro' || valor === 'oscuro') {
+    document.documentElement.dataset.theme = valor;
+  } else {
+    delete document.documentElement.dataset.theme;
+  }
+}
+
+function inicializarThemeSwitcher() {
+  const slot = document.getElementById('theme-switcher-slot');
+  if (!slot) return;
+  const temaActual = cargarTema();
+  aplicarTema(temaActual);
+
+  slot.innerHTML = `
+    <fieldset class="theme-switcher">
+      <legend class="sr-only">Tema</legend>
+      ${TEMA_OPCIONES.map(
+        (op) => `
+        <label class="theme-switcher-opcion">
+          <input type="radio" name="tema" value="${op.valor}" ${op.valor === temaActual ? 'checked' : ''} />
+          ${ICONS[op.icono]}
+          <span>${op.etiqueta}</span>
+        </label>`
+      ).join('')}
+    </fieldset>
+  `;
+
+  slot.querySelectorAll('input[name="tema"]').forEach((input) => {
+    input.addEventListener('change', () => {
+      guardarTema(input.value);
+      aplicarTema(input.value);
+    });
+  });
+}
+
+inicializarThemeSwitcher();
 
 window.addEventListener('hashchange', renderRuta);
 renderRuta();
