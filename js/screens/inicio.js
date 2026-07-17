@@ -1,8 +1,13 @@
 import { cargarProgreso } from '../storage.js';
 import { ICONS } from '../icons.js';
+import { cargarPreguntas, cargarSenales } from '../data.js';
 
 export async function renderInicio(container, { navigate }) {
   const estado = cargarProgreso();
+  // Los totales se leen de los datos, no se escriben a mano: ya se habían
+  // desincronizado una vez (decía 736 cuando el banco tenía 740).
+  const [preguntas, senales] = await Promise.all([cargarPreguntas(), cargarSenales()]);
+  const totalSenales = senales.length;
   const registros = Object.values(estado.preguntas);
   const intentos = registros.reduce((acc, r) => acc + r.intentos, 0);
   const aciertos = registros.reduce((acc, r) => acc + r.aciertos, 0);
@@ -53,7 +58,7 @@ export async function renderInicio(container, { navigate }) {
 
     <section class="tarjeta info-app">
       <h3>Sobre esta app</h3>
-      <p class="ayuda">736 preguntas de fuentes oficiales (cuestionario DPPySV, Manual del Conductor y cuadernillos municipales) y 118 señales oficiales. Cuando el examen y la ley vigente no coinciden, te lo marcamos en la revisión de cada pregunta.</p>
+      <p class="ayuda">${preguntas.length} preguntas de fuentes oficiales (cuestionario DPPySV, Manual del Conductor y cuadernillos municipales) y ${totalSenales} señales oficiales. Cuando el examen y la ley vigente no coinciden, te lo marcamos en la revisión de cada pregunta.</p>
     </section>
   `;
 
