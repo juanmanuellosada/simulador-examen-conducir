@@ -116,7 +116,7 @@
   "archivo": "assets/senales/circulacion-exclusiva-bicicleta.webp",
   "nombre": "Circulación Exclusiva (Bicicleta)",
   "codigo": "R 18",
-  "categoria": "De prohibición",
+  "categoria": "De reglamentación",
   "match": "exacto"
  },
  {
@@ -124,7 +124,7 @@
   "archivo": "assets/senales/circulacion-exclusiva-jinetes.webp",
   "nombre": "Circulación Exclusiva (Jinetes)",
   "codigo": "R 18",
-  "categoria": "De prohibición",
+  "categoria": "De reglamentación",
   "match": "exacto"
  },
  {
@@ -132,7 +132,7 @@
   "archivo": "assets/senales/circulacion-exclusiva-motos.webp",
   "nombre": "Circulación Exclusiva (Motos)",
   "codigo": "R 18",
-  "categoria": "De prohibición",
+  "categoria": "De reglamentación",
   "match": "exacto"
  },
  {
@@ -140,7 +140,7 @@
   "archivo": "assets/senales/circulacion-exclusiva-peatones.webp",
   "nombre": "Circulación Exclusiva (Peatones)",
   "codigo": "R 18",
-  "categoria": "De restricción",
+  "categoria": "De reglamentación",
   "match": "exacto"
  },
  {
@@ -148,7 +148,7 @@
   "archivo": "assets/senales/circulacion-exclusiva-transporte-publico.webp",
   "nombre": "Circulación Exclusiva (Transporte Público)",
   "codigo": "R 18",
-  "categoria": "De prohibición",
+  "categoria": "De reglamentación",
   "match": "exacto"
  },
  {
