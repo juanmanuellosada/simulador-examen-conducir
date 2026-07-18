@@ -1,6 +1,6 @@
 import { cargarPreguntas } from '../data.js';
 import { cargarProgreso, registrarRespuesta, cargarExamen, guardarExamen, borrarExamen } from '../storage.js';
-import { prepararPreguntas } from '../shuffle.js';
+import { shuffleArray, shuffleOpciones } from '../shuffle.js';
 import { escapeHtml, formatTiempo, renderBloqueFuente } from '../util.js';
 import { ICONS } from '../icons.js';
 import { confirmar } from '../dialogo.js';
@@ -8,6 +8,36 @@ import { confirmar } from '../dialogo.js';
 const CANTIDAD_DEFAULT = 40;
 const UMBRAL_DEFAULT = 0.75;
 const DURACION_SEGUNDOS = 7200; // 2 horas, fijo por normativa
+
+// El muestreo uniforme deja en promedio ~1.3 eliminatorias en un examen de
+// 40 (24/740 del pool) y un ~27% de las veces ninguna, muy por debajo de lo
+// que exige el examen real (errar UNA eliminatoria = desaprobado). Se
+// estratifica para garantizar un mínimo representativo, proporcional a la
+// cantidad de preguntas elegida.
+const RATIO_MIN_ELIMINATORIAS = 0.1; // 4 de 40
+
+/**
+ * Arma el set de preguntas de un examen garantizando un mínimo de
+ * eliminatorias, y completa el resto con muestreo aleatorio uniforme sin
+ * duplicar las ya elegidas. El orden final (preguntas y opciones) queda
+ * barajado, así las eliminatorias no se agrupan ni delatan su posición.
+ */
+export function seleccionarPreguntasExamen(todas, cantidad) {
+  const eliminatorias = todas.filter((p) => p.eliminatoria);
+
+  const minEliminatorias = Math.min(
+    eliminatorias.length,
+    cantidad,
+    Math.max(1, Math.round(cantidad * RATIO_MIN_ELIMINATORIAS))
+  );
+
+  const eliminatoriasElegidas = shuffleArray(eliminatorias).slice(0, minEliminatorias);
+  const idsElegidos = new Set(eliminatoriasElegidas.map((p) => p.id));
+  const resto = todas.filter((p) => !idsElegidos.has(p.id));
+  const restoElegido = shuffleArray(resto).slice(0, cantidad - minEliminatorias);
+
+  return shuffleArray([...eliminatoriasElegidas, ...restoElegido]).map(shuffleOpciones);
+}
 
 // Estado de navegación interno (no persistido): a qué sub-vista mirar
 // dentro del modo examen cuando ya hay un examen activo/finalizado.
@@ -96,7 +126,7 @@ async function renderConfig(container, ctx) {
     const cantidad = clamp(parseInt(form.get('cantidad'), 10) || cantidadSugerida, 1, maxDisponible);
     const umbral = clamp(parseInt(form.get('umbral'), 10) || Math.round(UMBRAL_DEFAULT * 100), 1, 100) / 100;
 
-    const preguntas = prepararPreguntas(todas).slice(0, cantidad);
+    const preguntas = seleccionarPreguntasExamen(todas, cantidad);
     const examen = {
       version: 1,
       preguntas,

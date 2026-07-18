@@ -2242,7 +2242,7 @@
   "seccion": "generales",
   "subseccion": null,
   "tipo": "vf",
-  "pregunta": "El consumo de medicamentos, ¿puede afectar la capacidad de conducir? • Siempre. • Nunca. • Depende del tipo de medicamento. Por los efectos que provoca, el consumo de drogas ilegales no está permitido al momento de conducir; mientras que las drogas legales nunca afectan negativamente la capacidad de conducir.",
+  "pregunta": "Por los efectos que provoca, el consumo de drogas ilegales no está permitido al momento de conducir; mientras que las drogas legales nunca afectan negativamente la capacidad de conducir.",
   "opciones": [
    "Verdadero",
    "Falso"
@@ -2266,7 +2266,7 @@
   "seccion": "generales",
   "subseccion": null,
   "tipo": "multiple",
-  "pregunta": "Cuando se consume alcohol, ¿se pueden producir alteraciones en la visión? • Sí. • No, solamente afecta a la capacidad motora. • Sólo cuando se tiene más de 1 gramo de alcohol por litro de sangre. Una vez que dejó de ingerir alcohol, ¿qué sucede con la concentración de alcohol que tiene en su organismo?",
+  "pregunta": "Una vez que dejó de ingerir alcohol, ¿qué sucede con la concentración de alcohol que tiene en su organismo?",
   "opciones": [
    "Comienza a disminuir de forma inmediata.",
    "Continúa subiendo durante 1 hora y luego comienza a descender paulatinamente.",
@@ -2478,10 +2478,10 @@
    "0,0 gramos de alcohol por litro de sangre.",
    "0,2 gramos de alcohol por litro de sangre."
   ],
-  "correcta": 0,
+  "correcta": 1,
   "eliminatoria": false,
   "tema": "alcoholemia",
-  "explicacion": "OJO, PREGUNTA DESACTUALIZADA. El cuestionario oficial es de 2019 y todavía espera 0,5 g/l para el auto particular, así que en el examen marcá esa. Pero en la calle rige ALCOHOL CERO: desde 2023 está prohibido conducir cualquier vehículo con motor con alcoholemia superior a 0, tanto por la ley nacional (Ley 27.714, que reformó el art. 48 inc. a de la Ley 24.449) como por la provincial (Ley 15.402, que incorporó el art. 28 ter a la Ley 13.927 de la Provincia). El viejo esquema de 0,5 particular / 0,2 motos / 0,0 profesionales quedó derogado. En resumen: en el examen 0,5, en la ruta 0,0.",
+  "explicacion": "La respuesta correcta hoy es 0,0 gramos de alcohol por litro de sangre: desde 2023 rige ALCOHOL CERO para cualquier vehículo con motor, tanto por la ley nacional (Ley 27.714, que reformó el art. 48 inc. a de la Ley 24.449) como por la provincial (Ley 15.402, que incorporó el art. 28 ter a la Ley 13.927 de la Provincia de Buenos Aires). El cuestionario oficial es de 2019 y marcaba 0,5 g/l como clave, pero ese dato quedó derogado: el viejo esquema de 0,5 particular / 0,2 motos / 0,0 profesionales ya no existe, hoy es 0,0 g/l para todos. El municipio confirmó que en el examen real rige alcohol cero.",
   "fuente_cita": "Ley 24.449, art. 48 inc. a) (texto según Ley 27.714, B.O. 3/5/2023) · Ley 13.927 (PBA), art. 28 ter (incorporado por Ley 15.402)",
   "respuesta_derivada": false,
   "imagen": "assets/preguntas/pba_u100.webp",
@@ -2489,11 +2489,11 @@
    "tema": "alcoholemia máxima permitida para automóvil particular (clase B)",
    "gravedad": "alta",
    "que_dice_la_ley": "Desde 2023 rige ALCOHOL CERO en la Provincia de Buenos Aires: 0,0 g/l para cualquier vehículo con motor (Ley nacional 27.714, B.O. 3/5/2023, y Ley provincial 15.402). El viejo esquema 0,5 / 0,2 / 0,0 según el tipo de vehículo está derogado.",
-   "recomendacion": "En el examen marcá 0,5 g/l: la clave oficial es de 2019 y todavía la da por correcta. OJO que en algunas preguntas el 0,0 aparece entre las opciones — es la respuesta correcta según la ley de hoy, pero el examen te la cuenta MAL. En la calle rige 0,0."
+   "recomendacion": "Marcá 0,0 g/l: es la respuesta correcta según la ley vigente y coincide con lo que exige el examen real (confirmado por el municipio antes de rendir). La clave de 0,5 g/l corresponde al cuestionario oficial de 2019, previo a la reforma de 2023, y quedó desactualizada."
   },
   "por_que_no_las_otras": {
-   "1": "0,0 g/l es la respuesta CORRECTA según la ley vigente hoy, pero el examen te la cuenta MAL porque su clave es anterior a la reforma de 2023. Es la trampa más molesta de este cuestionario: sabelo y marcá igual la que espera la clave.",
-   "2": "0,2 g/l era el límite del viejo esquema para motos y ciclomotores, no para autos particulares. Hoy también quedó derogado por el alcohol cero."
+   "0": "0,5 g/l era el límite del viejo esquema para autos particulares, hoy derogado. Es la clave que todavía marca el cuestionario oficial de 2019, pero no refleja la ley vigente.",
+   "2": "0,2 g/l era el límite del viejo esquema para motos y ciclomotores, también derogado. Hoy el límite es 0,0 g/l para todos los vehículos con motor."
   },
   "confianza_explicacion": "alta"
  },
@@ -3181,7 +3181,7 @@
    "De prevencion."
   ],
   "correcta": 1,
-  "eliminatoria": false,
+  "eliminatoria": true,
   "tema": "senales",
   "explicacion": "Forma y color no son decorativos: son el idioma del señalamiento. El círculo con rojo significa ORDEN o prohibición, y ese es el grupo de las reglamentarias o prescriptivas (prohibido estacionar, pare, límite de velocidad). Regla práctica: círculo rojo = te manda; triángulo/rombo amarillo = te advierte; rectángulo azul o verde = te informa.",
   "fuente_cita": "Ley 24.449, art. 22 · Manual del Conductor, pág. 43 (señales reglamentarias o prescriptivas) · Decreto 779/95, Anexo L",
@@ -3490,7 +3490,7 @@
    "Falso"
   ],
   "correcta": 1,
-  "eliminatoria": false,
+  "eliminatoria": true,
   "tema": "documentacion",
   "explicacion": "La VTV no es un trámite administrativo con tolerancia: es la constancia de que el auto está mecánicamente apto. Vencida, el vehículo no está habilitado a circular, así que no es 'infracción pero seguí': directamente no podés circular. La lógica es simple, un auto sin revisión vigente es un vehículo cuyo estado nadie certificó.",
   "fuente_cita": "Ley 24.449, art. 34 (revisión técnica obligatoria) y art. 40",
@@ -5011,7 +5011,7 @@
    "Durante los primeros doce meses."
   ],
   "correcta": 1,
-  "eliminatoria": false,
+  "eliminatoria": true,
   "tema": "general",
   "explicacion": "Los primeros seis meses sos principiante y tenés que llevar el cartel visible adelante y atrás (fondo verde, letras blancas). No es un castigo: le avisa al resto que tus reacciones todavía no están automatizadas, para que te den más margen. Dato que suelen olvidar: durante ese período tampoco podés circular por rutas, autopistas ni semiautopistas.",
   "fuente_cita": "Manual del Conductor, pág. 16 ('deben conducir durante los primeros seis meses llevando bien visible... el distintivo... de principiante') y pág. 11",
@@ -6426,7 +6426,7 @@
   "seccion": "generales",
   "subseccion": null,
   "tipo": "multiple",
-  "pregunta": "Complete con numeros las velocidades permitidas para desarrollar en las siguientes vias circulacion para automóviles y motos: Avenida Semi-Autopista Calle Autopista Mínima 30 40 20 65 Máxima 60 120 40 130 138) Al llegar a una interseccion entre una calle y una avenida ¿ a quien se le debe ceder el paso?",
+  "pregunta": "Al llegar a una intersección entre una calle y una avenida ¿a quién se le debe ceder el paso?",
   "opciones": [
    "A los peatones.",
    "A quien circule por la izquierda.",
@@ -6434,7 +6434,7 @@
    "A quien circula a mayor velocidad."
   ],
   "correcta": 0,
-  "eliminatoria": true,
+  "eliminatoria": false,
   "tema": "velocidad",
   "explicacion": "El enunciado viene con la tabla de velocidades pegada, pero lo que se responde es la 138: en cualquier intersección, la prioridad la tiene el peatón que cruza. La prioridad del que viene por la derecha rige entre vehículos, y aun esa cede frente al peatón que cruza por donde corresponde. Regla práctica: antes de resolver quién pasa primero entre autos, fijate si hay alguien cruzando a pie; ese siempre va primero.",
   "fuente_cita": "Ley 24.449, art. 41 (la prioridad de la derecha cede ante peatones que cruzan la calzada)",
@@ -6444,6 +6444,32 @@
    "1": "La izquierda nunca da prioridad en nuestro sistema. Es exactamente el lado contrario al de la regla general.",
    "2": "Entre vehículos sería lo correcto, pero la pregunta arranca en un cruce con peatones y esa prioridad está por encima. Además una avenida tiene prioridad sobre una calle.",
    "3": "La velocidad no otorga ningún derecho. Al contrario: el que va más rápido de lo debido se presume responsable del siniestro."
+  },
+  "confianza_explicacion": "alta"
+ },
+ {
+  "id": "pba_137_tabla",
+  "fuente": "pba_oficial",
+  "fuente_label": "Cuestionario oficial DPPySV (Prov. Bs. As.)",
+  "seccion": "generales",
+  "subseccion": null,
+  "tipo": "multiple",
+  "pregunta": "Complete con números las velocidades mínima y máxima permitidas para circular en las siguientes vías (para automóviles y motos): calle, avenida, semiautopista y autopista.",
+  "opciones": [
+   "Calle 20-40 km/h · Avenida 30-60 km/h · Semiautopista 40-120 km/h · Autopista 65-130 km/h.",
+   "Calle 30-40 km/h · Avenida 40-60 km/h · Semiautopista 60-120 km/h · Autopista 80-130 km/h.",
+   "Calle 20-60 km/h · Avenida 30-80 km/h · Semiautopista 40-130 km/h · Autopista 65-140 km/h."
+  ],
+  "correcta": 0,
+  "eliminatoria": true,
+  "tema": "velocidad",
+  "explicacion": "Es la tabla completa de velocidades por tipo de vía, una de las preguntas eliminatorias más citadas del cuestionario: calle 20-40 km/h, avenida 30-60 km/h, semiautopista 40-120 km/h y autopista 65-130 km/h. Para memorizarla: cada vía habilita más velocidad que la anterior, y el mínimo de calle, avenida y semiautopista es la mitad del máximo; la autopista rompe ese patrón con un piso más alto (65), porque ahí un vehículo lento es un peligro para el resto.",
+  "fuente_cita": "Cuestionario oficial DPPySV, pág. 61 (pregunta 137, carácter eliminatorio) · Manual del Conductor, pág. 57 (tabla de límites máximos y mínimos)",
+  "respuesta_derivada": false,
+  "imagen": null,
+  "por_que_no_las_otras": {
+   "1": "Mezcla los mínimos entre vías (30 en calle, 40 en avenida) y sube el piso de autopista a 80: son los números que más se confunden, pero no corresponden a ninguna vía real de la tabla.",
+   "2": "Mantiene los mínimos correctos pero infla todos los máximos (avenida a 80, autopista a 140): esos valores no existen en la reglamentación vigente."
   },
   "confianza_explicacion": "alta"
  },
@@ -8084,7 +8110,7 @@
   "seccion": "senales",
   "subseccion": null,
   "tipo": "multiple",
-  "pregunta": "¿Qué tipo de señal es la siguiente imagen? • Reglamentaria. • Transitoria. • Informativa. Si al conducir un vehículo se encuentra en una intersección con esta señalización intermitente, ¿qué actitud debe tomar?",
+  "pregunta": "Si al conducir un vehículo se encuentra en una intersección con esta señalización intermitente, ¿qué actitud debe tomar?",
   "opciones": [
    "Tengo la obligación de detener la marcha y cuando no haya más vehículos circulando por la arteria que cruza, puedo reiniciarla.",
    "Al tener prioridad, debo atravesarla rápidamente para no obstaculizar la vía.",
@@ -8420,7 +8446,7 @@
   "seccion": "senales",
   "subseccion": null,
   "tipo": "multiple",
-  "pregunta": "¿De qué color es la cartelería de Permitido Estacionar? • Azul. • blanco • rojo ¿Cuál de estas señales es Reglamentaria?",
+  "pregunta": "¿Cuál de estas señales es Reglamentaria?",
   "opciones": [
    "La señal A.",
    "La señal B.",
@@ -8472,7 +8498,7 @@
   "seccion": "senales",
   "subseccion": null,
   "tipo": "multiple",
-  "pregunta": "Indique qué tipo de señal es la que a continuación se muestra: • Preventiva. • Reglamentaria. • Informativa. ¿Cuál de las siguientes imágenes, por forma y color, corresponde a la señal indicativa de una rotonda o pendiente pronunciada?",
+  "pregunta": "¿Cuál de las siguientes imágenes, por forma y color, corresponde a la señal indicativa de una rotonda o pendiente pronunciada?",
   "opciones": [
    "Figura A.",
    "Figura B.",
@@ -12578,7 +12604,7 @@
   "seccion": "senales",
   "subseccion": null,
   "tipo": "multiple",
-  "pregunta": "¿Cómo se define el efecto que ocurre en la siguiente imagen? • Aquaplaning. • Off tracking. Cuando hay agua en el camino, debe reducir su velocidad para evitar…",
+  "pregunta": "Cuando hay agua en el camino, debe reducir su velocidad para evitar…",
   "opciones": [
    "Desgastar las llantas.",
    "Sobrecalentar las llantas.",
@@ -12966,7 +12992,7 @@
   "seccion": "senales",
   "subseccion": null,
   "tipo": "vf",
-  "pregunta": "Se deben utilizar balizas mientras se conduce bajo estas condiciones climáticas. •",
+  "pregunta": "Se deben utilizar balizas mientras se conduce bajo estas condiciones climáticas.",
   "opciones": [
    "Verdadero",
    "Falso"
@@ -13420,7 +13446,7 @@
   "seccion": "especificas",
   "subseccion": "auto_y_camioneta",
   "tipo": "multiple",
-  "pregunta": "¿Cómo deben encontrarse los neumáticos para comprobar la correcta presión de aire? • Fríos. • Calientes. • Es indistinto, al ser de caucho se mantienen aislados de la temperatura. ¿En qué momento es necesario renovar el siguiente elemento de seguridad? Cuando la profundidad del dibujo es menor de…",
+  "pregunta": "¿En qué momento es necesario renovar el siguiente elemento de seguridad? Cuando la profundidad del dibujo es menor de…",
   "opciones": [
    "1,6 mm.",
    "2 mm.",
@@ -14943,18 +14969,20 @@
   "correcta": 0,
   "eliminatoria": true,
   "tema": "alcoholemia",
-  "explicacion": "En el examen la respuesta es 0,5 gramos por litro de sangre, que es el límite que fija el cuestionario para automóviles. Pero tené presente que en la ruta ese dato quedó desactualizado: desde 2023 rige el alcohol cero, o sea que está prohibido conducir cualquier vehículo con motor con alcoholemia mayor a 0 (Ley nacional 27.714, que reformó la Ley 24.449, y Ley provincial 15.402). Sabelo para aprobar, manejá con cero.",
-  "fuente_cita": "Ley 24.449, art. 48 inc. a) (texto según Ley 27.714) · Ley provincial 15.402",
+  "explicacion": "Ninguna de estas tres opciones es correcta según la ley vigente: desde 2023 rige ALCOHOL CERO en toda la Provincia de Buenos Aires, es decir 0,0 g/l para cualquier vehículo con motor (Ley nacional 27.714, que reformó el art. 48 inc. a de la Ley 24.449, y Ley provincial 15.402, que incorporó el art. 28 ter a la Ley 13.927). Esta pregunta proviene del cuestionario oficial de 2019, anterior a esa reforma, y marca 0,5 g/l como clave: un dato derogado. El municipio confirmó verbalmente que en el examen real rige alcohol cero, así que si te aparece esta pregunta exacta con estas tres opciones, ninguna refleja la ley actual — consultalo con la mesa examinadora antes de responder.",
+  "fuente_cita": "Ley 24.449, art. 48 inc. a) (texto según Ley 27.714, B.O. 3/5/2023 — deroga el esquema de 0,5/0,2/0,0 según tipo de vehículo) · Ley provincial 15.402 (incorpora art. 28 ter a la Ley 13.927, alcohol cero)",
   "respuesta_derivada": false,
   "imagen": null,
   "conflicto": {
    "tema": "alcoholemia máxima permitida para automóvil particular (clase B)",
    "gravedad": "alta",
-   "que_dice_la_ley": "Desde 2023 rige ALCOHOL CERO en la Provincia de Buenos Aires: 0,0 g/l para cualquier vehículo con motor (Ley nacional 27.714, B.O. 3/5/2023, y Ley provincial 15.402). El viejo esquema 0,5 / 0,2 / 0,0 según el tipo de vehículo está derogado.",
-   "recomendacion": "En el examen marcá 0,5 g/l: la clave oficial es de 2019 y todavía la da por correcta. OJO que en algunas preguntas el 0,0 aparece entre las opciones — es la respuesta correcta según la ley de hoy, pero el examen te la cuenta MAL. En la calle rige 0,0."
+   "pregunta_a_revisar": true,
+   "que_dice_la_ley": "Desde 2023 rige ALCOHOL CERO en la Provincia de Buenos Aires: 0,0 g/l para cualquier vehículo con motor (Ley nacional 27.714, B.O. 3/5/2023, y Ley provincial 15.402). El viejo esquema 0,5 / 0,2 / 0,0 según el tipo de vehículo está derogado. NINGUNA de las tres opciones de esta pregunta (0,5 / 0,2 / 0,05) es 0,0, así que ninguna es correcta según la ley vigente.",
+   "recomendacion": "Esta pregunta viene del cuestionario oficial desactualizado (2019, previo a la reforma de 2023) y ninguna de sus opciones refleja la ley vigente. No te guíes por 0,5 g/l ni por ninguna otra opción acá listada: la ley vigente exige 0,0 g/l (alcohol cero). Tratá esta pregunta como no confiable — si te aparece igual en el examen real, consultala con la mesa examinadora en el momento."
   },
   "por_que_no_las_otras": {
-   "1": "0,2 g/l era el viejo límite para motos y ciclomotores, no para autos, y hoy también quedó sin efecto por el alcohol cero.",
+   "0": "Es la clave que marca el cuestionario oficial de 2019, pero ese esquema está derogado: no es la respuesta correcta según la ley vigente, que exige 0,0 g/l.",
+   "1": "0,2 g/l era el viejo límite para motos y ciclomotores, no para autos, y también quedó sin efecto por el alcohol cero.",
    "2": "0,05 g/l nunca fue un límite del régimen argentino: aparece como distractor por parecerse a 0,5 con la coma corrida un lugar."
   },
   "confianza_explicacion": "alta"
@@ -16455,17 +16483,19 @@
   "correcta": 1,
   "eliminatoria": false,
   "tema": "alcoholemia",
-  "explicacion": "La clave de este cuadernillo espera 0,5 g/l, que era el tope histórico del art. 48 inc. a de la Ley 24.449 para autos particulares (0,2 para motos y 0,0 para transporte). Marcá 0,5 para aprobar, pero tené presente que ese esquema ya no rige: desde 2023 la Provincia de Buenos Aires aplica ALCOHOL CERO. La lógica de fondo no cambió y el propio enunciado la explica: no existe una dosis 'segura', porque el alcohol te baja los reflejos antes de que lo notes.",
-  "fuente_cita": "Ley 24.449, art. 48 inc. a (texto histórico, 0,5 g/l) · Ley 27.714 (B.O. 3/5/2023) y Ley provincial 15.402 — alcohol cero, vigentes",
+  "explicacion": "Ninguna de estas tres opciones es correcta según la ley vigente: desde 2023 rige ALCOHOL CERO en toda la Provincia de Buenos Aires, o sea 0,0 g/l para cualquier vehículo con motor (Ley nacional 27.714 y Ley provincial 15.402). Este cuadernillo municipal (2020) recoge el esquema anterior a esa reforma y marca 0,5 g/l como clave: un dato derogado. El propio enunciado ya lo dice bien, que no existe una dosis 'segura' de alcohol al volante — hoy esa idea se llevó al límite legal, que es cero.",
+  "fuente_cita": "Ley 24.449, art. 48 inc. a) (texto histórico, 0,5 g/l, derogado) · Ley 27.714 (B.O. 3/5/2023) y Ley provincial 15.402 — alcohol cero, vigentes",
   "imagen": null,
   "conflicto": {
    "tema": "alcoholemia máxima permitida para automóvil particular (clase B)",
    "gravedad": "alta",
-   "que_dice_la_ley": "Desde 2023 rige ALCOHOL CERO en la Provincia de Buenos Aires: 0,0 g/l para cualquier vehículo con motor (Ley nacional 27.714, B.O. 3/5/2023, y Ley provincial 15.402). El viejo esquema 0,5 / 0,2 / 0,0 según el tipo de vehículo está derogado.",
-   "recomendacion": "En el examen marcá 0,5 g/l: la clave oficial es de 2019 y todavía la da por correcta. OJO que en algunas preguntas el 0,0 aparece entre las opciones — es la respuesta correcta según la ley de hoy, pero el examen te la cuenta MAL. En la calle rige 0,0."
+   "pregunta_a_revisar": true,
+   "que_dice_la_ley": "Desde 2023 rige ALCOHOL CERO en la Provincia de Buenos Aires: 0,0 g/l para cualquier vehículo con motor (Ley nacional 27.714, B.O. 3/5/2023, y Ley provincial 15.402). El viejo esquema 0,5 / 0,2 / 0,0 según el tipo de vehículo está derogado. NINGUNA de las tres opciones de esta pregunta (0,2 / 0,5 / 0,8) es 0,0, así que ninguna es correcta según la ley vigente.",
+   "recomendacion": "Esta pregunta viene de un cuadernillo municipal de 2020, anterior a la reforma de alcohol cero (2023), y ninguna de sus opciones refleja la ley vigente. No te guíes por 0,5 g/l: la ley exige hoy 0,0 g/l (alcohol cero) para cualquier conductor. Tratá esta pregunta como desactualizada."
   },
   "por_que_no_las_otras": {
-   "0": "0,2 g/l era el límite para motos y ciclomotores, no para autos particulares: en el esquema viejo se le exigía más al motociclista por su mayor vulnerabilidad.",
+   "0": "0,2 g/l era el límite para motos y ciclomotores, no para autos particulares, y también quedó derogado por el alcohol cero.",
+   "1": "Es la clave que marca este cuadernillo municipal de 2020, pero ese esquema quedó derogado en 2023: no es la respuesta correcta según la ley vigente, que exige 0,0 g/l.",
    "2": "0,8 g/l nunca rigió en la Argentina; es un límite de otros países, puesto acá como distractor."
   },
   "confianza_explicacion": "alta"
@@ -16868,7 +16898,7 @@
    "El que ingresa a la autopista",
    "El que circula por la autopista"
   ],
-  "correcta": 1,
+  "correcta": 2,
   "eliminatoria": false,
   "tema": "prioridad",
   "explicacion": "Al ingresar en la autopista debe ceder el paso el que circula por ella.",
@@ -16928,11 +16958,11 @@
    "0 g/l",
    "0,2 g/l"
   ],
-  "correcta": 2,
+  "correcta": 1,
   "eliminatoria": false,
   "tema": "alcoholemia",
-  "explicacion": "La normativa provincial establece distintos niveles de alcohol en sangre permitidos, a saber: 0, 5 g/l para conductores particulares; 0, 2 g/l para motociclistas y 0 g/l para profesionales.",
-  "fuente_cita": "Manual del Conductor, pág. 83 / 5.4 Alcohol",
+  "explicacion": "El viejo esquema provincial distinguía niveles según el tipo de vehículo (0,5 g/l para particulares, 0,2 g/l para motociclistas y 0 g/l para profesionales), pero ese esquema quedó derogado. Desde 2023 rige ALCOHOL CERO para cualquier vehículo con motor, incluidas las motos: el límite es 0 g/l para todos los conductores, sin distinción (Ley nacional 27.714, que reformó el art. 48 inc. a de la Ley 24.449, y Ley provincial 15.402, que incorporó el art. 28 ter a la Ley 13.927 de la Provincia de Buenos Aires).",
+  "fuente_cita": "Ley 24.449, art. 48 inc. a) (texto según Ley 27.714, B.O. 3/5/2023) · Ley 13.927 (PBA), art. 28 ter (incorporado por Ley 15.402)",
   "imagen": null
  },
  {

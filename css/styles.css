@@ -566,6 +566,15 @@ main {
 .aviso-conflicto p:last-child {
   margin-bottom: 0;
 }
+/* Variante crítica: ninguna opción de la pregunta es correcta según la ley
+   vigente (no solo una discrepancia de fuentes). Se distingue en rojo. */
+.aviso-conflicto-critico {
+  background: var(--color-incorrecta-bg);
+  border-color: var(--color-incorrecta);
+}
+.aviso-conflicto-critico .aviso-conflicto-titulo {
+  color: var(--color-incorrecta);
+}
 
 .progreso-sesion {
   font-weight: 600;

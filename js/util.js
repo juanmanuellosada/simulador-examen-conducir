@@ -62,8 +62,18 @@ export function renderBloqueFuente(pregunta) {
 
   if (pregunta.conflicto) {
     const c = pregunta.conflicto;
-    const textoCorrecta = pregunta.opciones[pregunta.correcta];
-    partes.push(`
+    if (c.pregunta_a_revisar) {
+      partes.push(`
+        <div class="aviso-conflicto aviso-conflicto-critico" role="note">
+          <p class="aviso-conflicto-titulo">${ICONS.advertencia} Ninguna opción de esta pregunta refleja la ley vigente</p>
+          <p><strong>Ninguna de las opciones listadas es correcta:</strong> la ley vigente exige 0,0 g/l (alcohol cero), un valor que no aparece entre las opciones.</p>
+          <p><strong>Qué dice la ley vigente:</strong> ${escapeHtml(c.que_dice_la_ley)}</p>
+          <p><strong>Recomendación:</strong> ${escapeHtml(c.recomendacion)}</p>
+        </div>
+      `);
+    } else {
+      const textoCorrecta = pregunta.opciones[pregunta.correcta];
+      partes.push(`
       <div class="aviso-conflicto" role="note">
         <p class="aviso-conflicto-titulo">${ICONS.advertencia} Las fuentes oficiales se contradicen en este tema</p>
         <p><strong>Para aprobar el examen marcá:</strong> ${escapeHtml(textoCorrecta)}</p>
@@ -71,6 +81,7 @@ export function renderBloqueFuente(pregunta) {
         <p><strong>Recomendación:</strong> ${escapeHtml(c.recomendacion)}</p>
       </div>
     `);
+    }
   }
 
   return partes.join('');
